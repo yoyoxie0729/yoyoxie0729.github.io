@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -79,7 +79,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/27/SQL备忘录/">SQL备忘录</a>
+      <a class="article-title" href="/2018/03/27/SQL备忘录/">SQL 备忘录</a>
     </h1>
   
 
@@ -87,12 +87,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> TB2.F02 <span class="keyword">AS</span> OBJ_NAME,</span><br><span class="line">       <span class="string">'1'</span> <span class="keyword">AS</span> OBJ_TYPE,</span><br><span class="line">       TB2.F03 <span class="keyword">AS</span> CARD_NUM,</span><br><span class="line">       NAME_ <span class="keyword">AS</span> JS_DEPT,</span><br><span class="line">       JC_DESC <span class="keyword">AS</span> JC_METHOD,</span><br><span class="line">       REASON <span class="keyword">AS</span> JC_REASON,</span><br><span class="line">       DESCRIPTION_ <span class="keyword">AS</span> JC_REGION,</span><br><span class="line">       <span class="string">'1'</span> <span class="keyword">AS</span> JC_TYPE</span><br><span class="line">  <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> <span class="string">'1'</span> <span class="keyword">AS</span> COMPARE, NAME_, JC_DESC, DESCRIPTION_, REASON</span><br><span class="line">          <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> C.ID, B.NAME_, C.JC_DESC, D.DESCRIPTION_</span><br><span class="line">                  <span class="keyword">FROM</span> TB_JC_TEMPLATE_ORGAN A,</span><br><span class="line">                       TB_SYS_ORGAN         B,</span><br><span class="line">                       TB_JC_TEMPLATE       C,</span><br><span class="line">                       TB_SYS_CODE          D</span><br><span class="line">                 <span class="keyword">WHERE</span> A.JC_ORGAN_ID = B.ID</span><br><span class="line">                   <span class="keyword">AND</span> A.JC_TEMPLATE_ID = C.ID</span><br><span class="line">                   <span class="keyword">AND</span> C.RELATION_DOMAIN = D.ID) T1,</span><br><span class="line">               (<span class="keyword">SELECT</span> F.JC_TEMPLATE_ID <span class="keyword">AS</span> <span class="keyword">ID</span>,</span><br><span class="line">                       <span class="comment">-- WMSYS.WM_CONCAT(E.REASON_NAME) AS REASON</span></span><br><span class="line">                       E.REASON_NAME <span class="keyword">AS</span> REASON</span><br><span class="line">                  <span class="keyword">FROM</span> TB_JC_REASON E, TB_JC_TEMPLATE_REASON F</span><br><span class="line">                 <span class="keyword">WHERE</span> E.ID = F.JC_REASON_ID</span><br><span class="line">                <span class="comment">-- GROUP BY F.JC_TEMPLATE_ID</span></span><br><span class="line">                ) T2</span><br><span class="line">         <span class="keyword">WHERE</span> T1.ID = T2.ID</span><br><span class="line">           <span class="keyword">AND</span> DESCRIPTION_ = <span class="string">'限制审批或准入'</span></span><br><span class="line">           <span class="keyword">AND</span> REASON <span class="keyword">LIKE</span> <span class="string">'失信被执行人单位'</span></span><br><span class="line">         <span class="keyword">GROUP</span> <span class="keyword">BY</span> NAME_, JC_DESC, DESCRIPTION_, REASON</span><br><span class="line">         <span class="keyword">ORDER</span> <span class="keyword">BY</span> NAME_, REASON) TB1</span><br><span class="line">  <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> (<span class="keyword">SELECT</span> <span class="string">'1'</span> <span class="keyword">AS</span> COMPARE, F02, F03 <span class="keyword">FROM</span> H_RMFY_1069) TB2</span><br><span class="line">    <span class="keyword">ON</span> TB1.COMPARE = TB2.COMPARE;</span><br></pre></td></tr></table></figure></p>
+        <h2 id="信用衢州"><a href="#信用衢州" class="headerlink" title="信用衢州"></a>信用衢州</h2><h3 id="论-LEFT-JOIN-的妙用-😂"><a href="#论-LEFT-JOIN-的妙用-😂" class="headerlink" title="论 LEFT JOIN 的妙用 😂"></a>论 LEFT JOIN 的妙用 😂</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 联合惩戒备忘录对应失信被执行人</span></span><br><span class="line"><span class="keyword">SELECT</span> TB2.F02 <span class="keyword">AS</span> OBJ_NAME,</span><br><span class="line">       <span class="string">'1'</span> <span class="keyword">AS</span> OBJ_TYPE,</span><br><span class="line">       TB2.F03 <span class="keyword">AS</span> CARD_NUM,</span><br><span class="line">       NAME_ <span class="keyword">AS</span> JS_DEPT,</span><br><span class="line">       JC_DESC <span class="keyword">AS</span> JC_METHOD,</span><br><span class="line">       REASON <span class="keyword">AS</span> JC_REASON,</span><br><span class="line">       DESCRIPTION_ <span class="keyword">AS</span> JC_REGION,</span><br><span class="line">       <span class="string">'1'</span> <span class="keyword">AS</span> JC_TYPE</span><br><span class="line">  <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> <span class="string">'1'</span> <span class="keyword">AS</span> COMPARE, NAME_, JC_DESC, DESCRIPTION_, REASON</span><br><span class="line">          <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> C.ID, B.NAME_, C.JC_DESC, D.DESCRIPTION_</span><br><span class="line">                  <span class="keyword">FROM</span> TB_JC_TEMPLATE_ORGAN A,</span><br><span class="line">                       TB_SYS_ORGAN         B,</span><br><span class="line">                       TB_JC_TEMPLATE       C,</span><br><span class="line">                       TB_SYS_CODE          D</span><br><span class="line">                 <span class="keyword">WHERE</span> A.JC_ORGAN_ID = B.ID</span><br><span class="line">                   <span class="keyword">AND</span> A.JC_TEMPLATE_ID = C.ID</span><br><span class="line">                   <span class="keyword">AND</span> C.RELATION_DOMAIN = D.ID) T1,</span><br><span class="line">               (<span class="keyword">SELECT</span> F.JC_TEMPLATE_ID <span class="keyword">AS</span> <span class="keyword">ID</span>,</span><br><span class="line">                       <span class="comment">-- WMSYS.WM_CONCAT(E.REASON_NAME) AS REASON</span></span><br><span class="line">                       E.REASON_NAME <span class="keyword">AS</span> REASON</span><br><span class="line">                  <span class="keyword">FROM</span> TB_JC_REASON E, TB_JC_TEMPLATE_REASON F</span><br><span class="line">                 <span class="keyword">WHERE</span> E.ID = F.JC_REASON_ID</span><br><span class="line">                <span class="comment">-- GROUP BY F.JC_TEMPLATE_ID</span></span><br><span class="line">                ) T2</span><br><span class="line">         <span class="keyword">WHERE</span> T1.ID = T2.ID</span><br><span class="line">           <span class="keyword">AND</span> DESCRIPTION_ = <span class="string">'限制审批或准入'</span></span><br><span class="line">           <span class="keyword">AND</span> REASON <span class="keyword">LIKE</span> <span class="string">'失信被执行人单位'</span></span><br><span class="line">         <span class="keyword">GROUP</span> <span class="keyword">BY</span> NAME_, JC_DESC, DESCRIPTION_, REASON</span><br><span class="line">         <span class="keyword">ORDER</span> <span class="keyword">BY</span> NAME_, REASON) TB1</span><br><span class="line">  <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> (<span class="keyword">SELECT</span> <span class="string">'1'</span> <span class="keyword">AS</span> COMPARE, F02, F03 <span class="keyword">FROM</span> H_RMFY_1069) TB2</span><br><span class="line">    <span class="keyword">ON</span> TB1.COMPARE = TB2.COMPARE;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/SQL备忘录/" data-id="cjf92roe000004bovd3y9x9b9" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/27/SQL备忘录/" data-id="cjf93629c0000ayov608ef9vv" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
@@ -126,13 +126,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="基于-Node-js-的开源博客软件-Hexo-部署流程"><a href="#基于-Node-js-的开源博客软件-Hexo-部署流程" class="headerlink" title="基于 Node.js 的开源博客软件 Hexo 部署流程"></a>基于 Node.js 的开源博客软件 Hexo 部署流程</h2><blockquote>
-<p>A fast, simple &amp; powerful blog framework</p>
-</blockquote>
-<blockquote>
-<p>快速、简洁且高效的博客框架</p>
-</blockquote>
-<h3 id="安装-npm"><a href="#安装-npm" class="headerlink" title="安装 npm"></a>安装 npm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew intall npm</span><br></pre></td></tr></table></figure>
+        <h2 id="基于-Node-js-的开源博客软件-Hexo-部署流程"><a href="#基于-Node-js-的开源博客软件-Hexo-部署流程" class="headerlink" title="基于 Node.js 的开源博客软件 Hexo 部署流程"></a>基于 Node.js 的开源博客软件 Hexo 部署流程</h2><h3 id="安装-npm"><a href="#安装-npm" class="headerlink" title="安装 npm"></a>安装 npm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew intall npm</span><br></pre></td></tr></table></figure>
 <h3 id="安装-hexo-cli"><a href="#安装-hexo-cli" class="headerlink" title="安装 hexo-cli"></a>安装 hexo-cli</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <h3 id="初始化-Hexo"><a href="#初始化-Hexo" class="headerlink" title="初始化 Hexo"></a>初始化 Hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
 <h3 id="生成静态资源并本地发布测试"><a href="#生成静态资源并本地发布测试" class="headerlink" title="生成静态资源并本地发布测试"></a>生成静态资源并本地发布测试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
@@ -141,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Hexo建站记录/" data-id="cjf92roe400014boviiz5uf1r" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/27/Hexo建站记录/" data-id="cjf93629g0001ayov21hi7b1h" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开源博客/">开源博客</a></li></ul>
@@ -164,7 +158,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/">Github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开源博客/">开源博客</a></li></ul>
     </div>
@@ -174,7 +168,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/开源博客/" style="font-size: 10px;">开源博客</a>
     </div>
@@ -183,7 +177,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
     </div>
@@ -193,12 +187,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2018/03/27/SQL备忘录/">SQL备忘录</a>
+            <a href="/2018/03/27/SQL备忘录/">SQL 备忘录</a>
           </li>
         
           <li>
@@ -218,7 +212,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 YHDEV<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé par <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
