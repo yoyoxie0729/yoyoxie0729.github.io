@@ -222,6 +222,24 @@
         
         
           
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+</li>
+
+      
+        
+        
+          
   <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
@@ -235,6 +253,25 @@
 
   
     
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
 
   
 
@@ -364,7 +401,7 @@
         
           
             <h2 id="函数部分"><a href="#函数部分" class="headerlink" title="函数部分"></a>函数部分</h2><h3 id="Oracle-WMSYS-WM-CONCAT-函数"><a href="#Oracle-WMSYS-WM-CONCAT-函数" class="headerlink" title="Oracle WMSYS.WM_CONCAT()函数"></a>Oracle <code>WMSYS.WM_CONCAT()</code>函数</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 合并记录，逗号隔开</span></span><br><span class="line"><span class="keyword">SELECT</span> 字段<span class="number">1</span>, 字段<span class="number">2</span>, WMSYS.WM_CONCAT(待合并字段)</span><br><span class="line">  <span class="keyword">FROM</span> 表<span class="number">1</span></span><br><span class="line"> <span class="keyword">GROUP</span> <span class="keyword">BY</span> 字段<span class="number">1</span>, 字段<span class="number">2</span></span><br><span class="line"> <span class="keyword">ORDER</span> <span class="keyword">BY</span> 字段<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下"></a>效果如下</h3><ul>
+<h4 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下"></a>效果如下</h4><ul>
 <li>原表</li>
 </ul>
 <table>
@@ -516,6 +553,24 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件/" itemprop="url" rel="index"><span itemprop="name">软件</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -641,14 +696,16 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  
+                  <a href="/categories/index.html">
                     
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">categories</span>
-                  
+                  </a>
                 </div>
               
 
@@ -656,7 +713,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -673,7 +730,7 @@
                     
                     <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>
