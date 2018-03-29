@@ -408,25 +408,25 @@
       
         
           
-            <h2 id="真正体会到了-Excel-的强大"><a href="#真正体会到了-Excel-的强大" class="headerlink" title="真正体会到了 Excel 的强大"></a>真正体会到了 Excel 的强大</h2><h3 id="一、查找类函数"><a href="#一、查找类函数" class="headerlink" title="一、查找类函数"></a>一、查找类函数</h3><p><strong>实现功能：两张表利用关联字段，用B表字段填充补全A表</strong></p>
+            <h2 id="真正体会到了-Excel-的强大"><a href="#真正体会到了-Excel-的强大" class="headerlink" title="真正体会到了 Excel 的强大"></a>真正体会到了 Excel 的强大</h2><h3 id="一、查找类函数"><a href="#一、查找类函数" class="headerlink" title="一、查找类函数"></a>一、查找类函数</h3><p><strong> 实现功能：两张表利用关联字段，用 B 表字段填充补全 A 表 </strong></p>
 <ul>
-<li><p><code>VLOOKUP</code>函数</p>
+<li><p><code>VLOOKUP</code> 函数</p>
 <figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=<span class="built_in">VLOOKUP</span>(lookup_value, table_array, clo_index_num, [range_lookup])</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>INDEX</code>函数配合<code>MATCH</code>函数</p>
+<li><p><code>INDEX</code> 函数配合 <code>MATCH</code> 函数</p>
 <figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=<span class="built_in">INDEX</span>(array, row_num, [column_num])</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="二、实用类函数"><a href="#二、实用类函数" class="headerlink" title="二、实用类函数"></a>二、实用类函数</h3><p><strong>实现功能：批量合并单元格</strong></p>
+<h3 id="二、实用类函数"><a href="#二、实用类函数" class="headerlink" title="二、实用类函数"></a>二、实用类函数</h3><p><strong> 实现功能：批量合并单元格 </strong></p>
 <blockquote>
 <p>遇到这样一个超级奇葩的需求，该怎么办</p>
 </blockquote>
 <ul>
 <li><p>第一步</p>
 <ul>
-<li>例如<code>列A</code>为合并单元格目标列</li>
-<li>在<code>列A</code>后添加一列<code>列B</code></li>
-<li><p><code>B1</code>中键入数字<code>1</code>，在<code>A2</code>键入以下函数</p>
+<li>例如 <code>列 A</code> 为合并单元格目标列</li>
+<li>在 <code>列 A</code> 后添加一列 <code>列 B</code></li>
+<li><p><code>B1</code> 中键入数字 <code>1</code>，在 <code>A2</code> 键入以下函数</p>
 <figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=<span class="built_in">IF</span>(<span class="symbol">A2</span>=<span class="symbol">A1</span>,<span class="symbol">B1</span>,<span class="symbol">B1</span>+<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>下拉填充至尾行实现按类编号</p>
@@ -435,8 +435,8 @@
 </li>
 <li><p>第二步</p>
 <ul>
-<li>新建<code>列C</code></li>
-<li><p><code>C1</code>对<code>B1</code>取模运算</p>
+<li>新建 <code>列 C</code></li>
+<li><p><code>C1</code> 对 <code>B1</code> 取模运算</p>
 <figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=<span class="built_in">MOD</span>(<span class="symbol">B1</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>下拉填充至尾行实现区分类别</p>
@@ -445,8 +445,8 @@
 </li>
 <li><p>第三步</p>
 <ul>
-<li>新建<code>列D</code></li>
-<li><p>在<code>D1</code>键入</p>
+<li>新建 <code>列 D</code></li>
+<li><p>在 <code>D1</code> 键入</p>
 <figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=<span class="built_in">IF</span>(<span class="symbol">C1</span>=<span class="number">1</span>,<span class="string">"text"</span>,<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>下拉填充至尾行实现按单元格类型分类</p>
@@ -454,23 +454,23 @@
 </ul>
 </li>
 <li>第四步<ul>
-<li>选中<code>列D</code></li>
-<li><code>Ctrl + G</code>打开定位</li>
+<li>选中 <code>列 D</code></li>
+<li><code>Ctrl + G</code> 打开定位</li>
 <li>进入定位条件，选中公式类型中的数字类型，<code>确定</code></li>
 <li>合并单元格</li>
-<li>再次<code>Ctrl + G</code>打开定位</li>
+<li>再次 <code>Ctrl + G</code> 打开定位</li>
 <li>进入定位条件，选中公式类型中的文字类型，<code>确定</code></li>
 <li>合并单元格</li>
 </ul>
 </li>
 <li>第五步<ul>
-<li>选中<code>列D</code></li>
+<li>选中 <code>列 D</code></li>
 <li>格式刷复制格式</li>
-<li>到<code>列A</code>应用至尾行</li>
+<li>到 <code>列 A</code> 应用至尾行</li>
 </ul>
 </li>
 <li>第六步<ul>
-<li>删除<code>列B</code>,<code>列C</code>,<code>列D</code><br><strong>批量合并单元格完成</strong></li>
+<li>删除 <code>列 B</code>,<code>列 C</code>,<code>列 D</code><br><strong> 批量合并单元格完成 </strong></li>
 </ul>
 </li>
 </ul>
@@ -631,16 +631,16 @@
       
         
           
-            <h2 id="函数部分"><a href="#函数部分" class="headerlink" title="函数部分"></a>函数部分</h2><h3 id="Oracle-WMSYS-WM-CONCAT-函数"><a href="#Oracle-WMSYS-WM-CONCAT-函数" class="headerlink" title="Oracle WMSYS.WM_CONCAT()函数"></a>Oracle <code>WMSYS.WM_CONCAT()</code>函数</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 合并记录，逗号隔开</span></span><br><span class="line"><span class="keyword">SELECT</span> 字段<span class="number">1</span>, 字段<span class="number">2</span>, WMSYS.WM_CONCAT(待合并字段)</span><br><span class="line">  <span class="keyword">FROM</span> 表<span class="number">1</span></span><br><span class="line"> <span class="keyword">GROUP</span> <span class="keyword">BY</span> 字段<span class="number">1</span>, 字段<span class="number">2</span></span><br><span class="line"> <span class="keyword">ORDER</span> <span class="keyword">BY</span> 字段<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+            <h2 id="函数部分"><a href="#函数部分" class="headerlink" title="函数部分"></a>函数部分</h2><h3 id="Oracle-WMSYS-WM-CONCAT-函数"><a href="#Oracle-WMSYS-WM-CONCAT-函数" class="headerlink" title="Oracle WMSYS.WM_CONCAT() 函数"></a>Oracle <code>WMSYS.WM_CONCAT()</code> 函数</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 合并记录，逗号隔开 </span></span><br><span class="line"><span class="keyword">SELECT</span> 字段 < span class="number">1</span>, 字段 < span class="number">2, WMSYS.WM_CONCAT(待合并字段)<br><span class="line">  <span class="keyword">FROM</span> 表 < span class="number">1</span><br><span class="line"> <span class="keyword">GROUP</span> <span class="keyword">BY</span> 字段 < span class="number">1</span>, 字段 < span class="number">2<br><span class="line"> <span class="keyword">ORDER</span> <span class="keyword">BY</span> 字段 < span class="number">1</span>;<br></pre></td></tr></table></figure>
 <h4 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下"></a>效果如下</h4><ul>
 <li>原表</li>
 </ul>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">字段1</th>
-<th style="text-align:center">字段2</th>
-<th style="text-align:center">字段3</th>
+<th style="text-align:center">字段 1</th>
+<th style="text-align:center">字段 2</th>
+<th style="text-align:center">字段 3</th>
 </tr>
 </thead>
 <tbody>
@@ -672,9 +672,9 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center">字段1</th>
-<th style="text-align:center">字段2</th>
-<th style="text-align:center"><code>WMSYS.WM_CONCAT(字段3)</code></th>
+<th style="text-align:center">字段 1</th>
+<th style="text-align:center">字段 2</th>
+<th style="text-align:center"><code>WMSYS.WM_CONCAT(字段 3)</code></th>
 </tr>
 </thead>
 <tbody>
