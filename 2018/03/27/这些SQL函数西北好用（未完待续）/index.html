@@ -99,18 +99,18 @@
 
 
 
-  <meta name="description" content="函数部分OracleWMSYS.WM_CONCAT() 函数12345-- 合并记录，逗号隔开 SELECT &apos;字段 1&apos;,&apos;字段 2&apos;,WMSYS.WM_CONCAT(&apos;字段 3&apos;)  FROM &apos;表 1&apos; GROUP BY &apos;字段 1&apos;,&apos;字段 2&apos; ORDER BY &apos;字段 1&apos;; 效果如下 原表     字段 1 字段 2 字段 3     A A1 AA2   A A1 AA3   B">
+  <meta name="description" content="函数部分Oracle 11g 版本 WMSYS.WM_CONCAT() 函数12345-- 合并记录，逗号隔开 SELECT &apos;字段 1&apos;,&apos;字段 2&apos;,WMSYS.WM_CONCAT(&apos;字段 3&apos;)  FROM &apos;表 1&apos; GROUP BY &apos;字段 1&apos;,&apos;字段 2&apos; ORDER BY &apos;字段 1&apos;; 效果如下 原表     字段 1 字段 2 字段 3     A A1 AA2   A A1">
 <meta name="keywords" content="SQL,Oracle,MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="这些 SQL 函数原来西北好用（未完）">
 <meta property="og:url" content="http://yoursite.com/2018/03/27/这些SQL函数西北好用（未完待续）/index.html">
 <meta property="og:site_name" content="YH&#39;s Quantum Field">
-<meta property="og:description" content="函数部分OracleWMSYS.WM_CONCAT() 函数12345-- 合并记录，逗号隔开 SELECT &apos;字段 1&apos;,&apos;字段 2&apos;,WMSYS.WM_CONCAT(&apos;字段 3&apos;)  FROM &apos;表 1&apos; GROUP BY &apos;字段 1&apos;,&apos;字段 2&apos; ORDER BY &apos;字段 1&apos;; 效果如下 原表     字段 1 字段 2 字段 3     A A1 AA2   A A1 AA3   B">
+<meta property="og:description" content="函数部分Oracle 11g 版本 WMSYS.WM_CONCAT() 函数12345-- 合并记录，逗号隔开 SELECT &apos;字段 1&apos;,&apos;字段 2&apos;,WMSYS.WM_CONCAT(&apos;字段 3&apos;)  FROM &apos;表 1&apos; GROUP BY &apos;字段 1&apos;,&apos;字段 2&apos; ORDER BY &apos;字段 1&apos;; 效果如下 原表     字段 1 字段 2 字段 3     A A1 AA2   A A1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-29T07:49:08.367Z">
+<meta property="og:updated_time" content="2018-03-29T12:19:26.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="这些 SQL 函数原来西北好用（未完）">
-<meta name="twitter:description" content="函数部分OracleWMSYS.WM_CONCAT() 函数12345-- 合并记录，逗号隔开 SELECT &apos;字段 1&apos;,&apos;字段 2&apos;,WMSYS.WM_CONCAT(&apos;字段 3&apos;)  FROM &apos;表 1&apos; GROUP BY &apos;字段 1&apos;,&apos;字段 2&apos; ORDER BY &apos;字段 1&apos;; 效果如下 原表     字段 1 字段 2 字段 3     A A1 AA2   A A1 AA3   B">
+<meta name="twitter:description" content="函数部分Oracle 11g 版本 WMSYS.WM_CONCAT() 函数12345-- 合并记录，逗号隔开 SELECT &apos;字段 1&apos;,&apos;字段 2&apos;,WMSYS.WM_CONCAT(&apos;字段 3&apos;)  FROM &apos;表 1&apos; GROUP BY &apos;字段 1&apos;,&apos;字段 2&apos; ORDER BY &apos;字段 1&apos;; 效果如下 原表     字段 1 字段 2 字段 3     A A1 AA2   A A1">
 
 
 
@@ -344,7 +344,7 @@
               
                 <span class="post-meta-item-text">更新于：</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-29T15:49:08+08:00">2018-03-29</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-29T20:19:26+08:00">2018-03-29</time>
             
           </span>
 
@@ -394,7 +394,7 @@
       
 
       
-        <h2 id="函数部分"><a href="#函数部分" class="headerlink" title="函数部分"></a>函数部分</h2><h3 id="OracleWMSYS-WM-CONCAT-函数"><a href="#OracleWMSYS-WM-CONCAT-函数" class="headerlink" title="OracleWMSYS.WM_CONCAT() 函数"></a>Oracle<code>WMSYS.WM_CONCAT()</code> 函数</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 合并记录，逗号隔开 </span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="string">'字段 1'</span>,<span class="string">'字段 2'</span>,WMSYS.WM_CONCAT(<span class="string">'字段 3'</span>)</span><br><span class="line">  <span class="keyword">FROM</span> <span class="string">'表 1'</span></span><br><span class="line"> <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="string">'字段 1'</span>,<span class="string">'字段 2'</span></span><br><span class="line"> <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="string">'字段 1'</span>;</span><br></pre></td></tr></table></figure>
+        <h2 id="函数部分"><a href="#函数部分" class="headerlink" title="函数部分"></a>函数部分</h2><h3 id="Oracle-11g-版本-WMSYS-WM-CONCAT-函数"><a href="#Oracle-11g-版本-WMSYS-WM-CONCAT-函数" class="headerlink" title="Oracle 11g 版本 WMSYS.WM_CONCAT() 函数"></a>Oracle 11g 版本 <code>WMSYS.WM_CONCAT()</code> 函数</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 合并记录，逗号隔开 </span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="string">'字段 1'</span>,<span class="string">'字段 2'</span>,WMSYS.WM_CONCAT(<span class="string">'字段 3'</span>)</span><br><span class="line">  <span class="keyword">FROM</span> <span class="string">'表 1'</span></span><br><span class="line"> <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="string">'字段 1'</span>,<span class="string">'字段 2'</span></span><br><span class="line"> <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="string">'字段 1'</span>;</span><br></pre></td></tr></table></figure>
 <h4 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下"></a>效果如下</h4><ul>
 <li>原表</li>
 </ul>
@@ -514,8 +514,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/29/48好用的Excel函数/" rel="prev" title="肆捌好用的 Excel 函数">
-                肆捌好用的 Excel 函数 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/29/48好用的Excel函数/" rel="prev" title="西北好用的 Excel 函数">
+                西北好用的 Excel 函数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -640,7 +640,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -710,7 +712,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数部分"><span class="nav-number">1.</span> <span class="nav-text">函数部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OracleWMSYS-WM-CONCAT-函数"><span class="nav-number">1.1.</span> <span class="nav-text">OracleWMSYS.WM_CONCAT() 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#效果如下"><span class="nav-number">1.1.1.</span> <span class="nav-text">效果如下</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数部分"><span class="nav-number">1.</span> <span class="nav-text">函数部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Oracle-11g-版本-WMSYS-WM-CONCAT-函数"><span class="nav-number">1.1.</span> <span class="nav-text">Oracle 11g 版本 WMSYS.WM_CONCAT() 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#效果如下"><span class="nav-number">1.1.1.</span> <span class="nav-text">效果如下</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
