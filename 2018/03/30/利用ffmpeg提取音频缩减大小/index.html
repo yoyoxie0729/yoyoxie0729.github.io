@@ -99,24 +99,25 @@
 
 
 
-  <meta name="description" content="朋友很少，努力变得有趣">
-<meta name="keywords" content="Ingress,DevOps,Photograph,VideoMaker">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YH&#39;s Quantum Field">
-<meta property="og:url" content="http://yoyoxie0729.github.io/tags/MySQL/index.html">
+  <meta name="description" content="记笔记 今天拿到一个音频文件，文件大小超出某平台上传限制，便着手在不改变音频长度的前提下缩减音频大小。  首先想到的是 Adobe 家大名鼎鼎的 Media Encoder CC，却不曾想已过期许久。接着想到用 Fianl Cut Pro X 导出音频，尝试了调整码率，但输出文件并不能达到需求的文件大小。一番 Google 之后，决定用 ffmpeg 尝试压缩安装编译完成后，打开终端键入1$ ff">
+<meta name="keywords" content="ffmpeg,command line tools">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用 ffmpeg 提取音频缩减大小">
+<meta property="og:url" content="http://yoyoxie0729.github.io/2018/03/30/利用ffmpeg提取音频缩减大小/index.html">
 <meta property="og:site_name" content="YH&#39;s Quantum Field">
-<meta property="og:description" content="朋友很少，努力变得有趣">
+<meta property="og:description" content="记笔记 今天拿到一个音频文件，文件大小超出某平台上传限制，便着手在不改变音频长度的前提下缩减音频大小。  首先想到的是 Adobe 家大名鼎鼎的 Media Encoder CC，却不曾想已过期许久。接着想到用 Fianl Cut Pro X 导出音频，尝试了调整码率，但输出文件并不能达到需求的文件大小。一番 Google 之后，决定用 ffmpeg 尝试压缩安装编译完成后，打开终端键入1$ ff">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-30T04:12:39.820Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YH&#39;s Quantum Field">
-<meta name="twitter:description" content="朋友很少，努力变得有趣">
+<meta name="twitter:title" content="利用 ffmpeg 提取音频缩减大小">
+<meta name="twitter:description" content="记笔记 今天拿到一个音频文件，文件大小超出某平台上传限制，便着手在不改变音频长度的前提下缩减音频大小。  首先想到的是 Adobe 家大名鼎鼎的 Media Encoder CC，却不曾想已过期许久。接着想到用 Fianl Cut Pro X 导出音频，尝试了调整码率，但输出文件并不能达到需求的文件大小。一番 Google 之后，决定用 ffmpeg 尝试压缩安装编译完成后，打开终端键入1$ ff">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoyoxie0729.github.io/tags/MySQL/"/>
+  <link rel="canonical" href="http://yoyoxie0729.github.io/2018/03/30/利用ffmpeg提取音频缩减大小/"/>
 
 
 
@@ -126,7 +127,7 @@
   };
 </script>
 
-  <title>标签: MySQL | YH's Quantum Field</title>
+  <title>利用 ffmpeg 提取音频缩减大小 | YH's Quantum Field</title>
   
 
 
@@ -173,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -276,81 +277,209 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>MySQL<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoyoxie0729.github.io/2018/03/30/利用ffmpeg提取音频缩减大小/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YHDEV">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YH's Quantum Field">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/03/27/这些SQL函数西北好用（未完待续）/" itemprop="url">
-              
-                <span itemprop="name">这些 SQL 函数原来西北好用（未完）</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">利用 ffmpeg 提取音频缩减大小</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-27T14:34:41+08:00"
-              content="2018-03-27" >
-          03-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-30T11:55:14+08:00">2018-03-30</time>
+            
 
-    </header>
-  </article>
+            
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件/" itemprop="url" rel="index"><span itemprop="name">软件</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="记笔记"><a href="#记笔记" class="headerlink" title="记笔记"></a>记笔记</h2><blockquote>
+<p>今天拿到一个音频文件，文件大小超出某平台上传限制，便着手在不改变音频长度的前提下缩减音频大小。</p>
+</blockquote>
+<p>首先想到的是 Adobe 家大名鼎鼎的 Media Encoder CC，却不曾想已过期许久。<br>接着想到用 Fianl Cut Pro X 导出音频，尝试了调整码率，但输出文件并不能达到需求的文件大小。<br>一番 Google 之后，决定用 ffmpeg 尝试压缩<br>安装编译完成后，打开终端键入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i input.mp3 -vn -ab 128k output.mp3</span><br></pre></td></tr></table></figure></p>
+<p>Done！成功输出指定码率的音频文件，文件大小符合要求<br><strong> 结论：一名合格的程序员 50% 的工作时间要花在用 Google 去填坑 </strong></p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="YHDEV wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎订阅我的公众号YhDev的日常</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>YHDEV</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoyoxie0729.github.io/2018/03/30/利用ffmpeg提取音频缩减大小/" title="利用 ffmpeg 提取音频缩减大小">http://yoyoxie0729.github.io/2018/03/30/利用ffmpeg提取音频缩减大小/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ffmpeg/" rel="tag"># ffmpeg</a>
+          
+            <a href="/tags/command-line-tools/" rel="tag"># command line tools</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/29/48好用的Excel函数/" rel="next" title="西北好用的 Excel 函数">
+                <i class="fa fa-chevron-left"></i> 西北好用的 Excel 函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -371,8 +500,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -504,6 +642,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#记笔记"><span class="nav-number">1.</span> <span class="nav-text">记笔记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -631,6 +785,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
 
   
 
