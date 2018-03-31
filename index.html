@@ -359,6 +359,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/31/ETL数据抽取过程中遇到的问题以及解决方案/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/31/ETL数据抽取过程中遇到的问题以及解决方案/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -386,10 +397,10 @@
         
           
             <h2 id="今天遇到的问题"><a href="#今天遇到的问题" class="headerlink" title="今天遇到的问题"></a>今天遇到的问题</h2><p>SQL 语句在客户端做查询时，结果集能够正常返回，但到 Kettle 中始终报错，返回 <code>Timestamp : Unable to get timestamp from resultset</code> 等错误信息并包含中文乱码。</p>
-<h3 id="发现问题："><a href="#发现问题：" class="headerlink" title=" 发现问题："></a><strong> 发现问题：</strong></h3><p>在看到 <code>timestamp</code> 之后我瞬间反应过来，可能是使用的 <code>str_to_date()</code> 函数出现了问题，当源字段为非正常日期格式或者为 0 或 null 值时，<code>str_to_date()</code> 容易报错。</p>
-<h3 id="解决方案："><a href="#解决方案：" class="headerlink" title=" 解决方案："></a><strong> 解决方案：</strong></h3><p>在 Kettle 的数据库连接配置中加入如下键值对，将非正常值转化为 null 值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zeroDateTimeBehavior:convertToNull</span><br></pre></td></tr></table></figure></p>
-<h3 id="成果："><a href="#成果：" class="headerlink" title=" 成果："></a><strong> 成果：</strong></h3><p>成功查询出结果！</p>
-<h3 id="心得："><a href="#心得：" class="headerlink" title=" 心得："></a><strong> 心得：</strong></h3><p>SQL 客户端固然方便，但也正因为加入了太多自动化的功能、配置，容易让基础不扎实的用户在其他不同的环境下屡屡出错，碰壁。（就像我一样）</p>
+<h3 id="发现问题"><a href="#发现问题" class="headerlink" title=" 发现问题 "></a><strong> 发现问题 </strong></h3><p>在看到 <code>timestamp</code> 之后我瞬间反应过来，可能是使用的 <code>str_to_date()</code> 函数出现了问题，当源字段为非正常日期格式或者为 0 或 null 值时，<code>str_to_date()</code> 容易报错。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title=" 解决方案 "></a><strong> 解决方案 </strong></h3><p>在 Kettle 的数据库连接配置中加入如下键值对，将非正常值转化为 null 值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zeroDateTimeBehavior:convertToNull</span><br></pre></td></tr></table></figure></p>
+<h3 id="成果"><a href="#成果" class="headerlink" title=" 成果 "></a><strong> 成果 </strong></h3><p>成功查询出结果！</p>
+<h3 id="心得"><a href="#心得" class="headerlink" title=" 心得 "></a><strong> 心得 </strong></h3><p>SQL 客户端固然方便，但也正因为加入了太多自动化的功能、配置，容易让基础不扎实的用户在其他不同的环境下屡屡出错，碰壁。（就像我一样）</p>
 <blockquote>
 <p>基础知识的掌握程度决定了解决问题的速度<br>– 我瞎编的</p>
 </blockquote>
@@ -507,6 +518,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/30/利用ffmpeg提取音频缩减大小/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/30/利用ffmpeg提取音频缩减大小/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -653,6 +675,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/29/48好用的Excel函数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/29/48好用的Excel函数/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -861,6 +894,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/27/这些SQL函数西北好用（未完待续）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/27/这些SQL函数西北好用（未完待续）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1060,6 +1104,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/27/Hexo建站记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/27/Hexo建站记录/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1438,13 +1493,9 @@
 
   
 
-
-
-	
-
-
-
-
+  
+    <script id="dsq-count-scr" src="https://yoyoxie0729.disqus.com/count.js" async></script>
+  
 
   
 
@@ -1452,7 +1503,7 @@
 
 
 
-  
+
 
 
 
