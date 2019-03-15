@@ -245,7 +245,7 @@
           
   <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">6</span>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">7</span>
       </a>
 </li>
 
@@ -281,6 +281,154 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoyoxie0729.github.io/2019/03/15/服务器内存降配后-Oracle-11g-无法启动问题的解决方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YHDEV">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YH's Quantum Field">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/15/服务器内存降配后-Oracle-11g-无法启动问题的解决方案/" itemprop="url">服务器内存降配后 Oracle 11g 无法启动问题的解决方案</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T17:12:02+08:00">2019-03-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/15/服务器内存降配后-Oracle-11g-无法启动问题的解决方案/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/03/15/服务器内存降配后-Oracle-11g-无法启动问题的解决方案/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前因"><a href="#前因" class="headerlink" title="前因"></a>前因</h2><p>客户这边某台服务器太久不使用，被服务商告知需要降低内存配置</p>
+<h2 id="发现问题"><a href="#发现问题" class="headerlink" title="发现问题"></a>发现问题</h2><ol>
+<li>检查 Oracle 数据库启动状态时发现无进程</li>
+<li><code>sqlplus / as sysdba</code> 登陆后，运行 <code>startup</code> 命令报错 <code>MEMORY_TARGET not supported on this system</code></li>
+</ol>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><ol>
+<li>通过搜索引擎定位到问题可能出现在 <code>pfile</code> 或 <code>spfile</code></li>
+<li>通过 <code>spfile</code> 创建 <code>pfile</code>，<code>create pfile=&#39;path/to/pfile&#39; from spfile</code></li>
+<li>修改 <code>pfile</code> 的 <code>MEMORY_TARGET</code> 的值到合适大小</li>
+<li>用 <code>pfile</code> 启动数据库，成功</li>
+<li>通过 <code>pfile</code> 创建 <code>spfile</code>，<code>create spfile=&#39;path/to/spfile&#39; from pfile=&#39;path/to/pfile&#39;</code></li>
+<li>重启数据库</li>
+<li>问题得到解决👌🏻</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1373,7 +1521,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1505,7 +1653,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate"> 
     <i class="fa fa-heart"></i>
   </span>
