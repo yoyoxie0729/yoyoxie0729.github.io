@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>YHDEV&#39;s Cave</title>
-    <link>https://yoyoxie0729.github.io/</link>
+    <link>http://yoyoxie0729.github.io/</link>
     <description>Recent content on YHDEV&#39;s Cave</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 15 Mar 2019 17:12:02 +0000</lastBuildDate><atom:link href="https://yoyoxie0729.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Mar 2019 17:12:02 +0000</lastBuildDate><atom:link href="http://yoyoxie0729.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>服务器内存降配后 Oracle 11g 无法启动问题的解决方案</title>
-      <link>https://yoyoxie0729.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AD%98%E9%99%8D%E9%85%8D%E5%90%8E-oracle-11g-%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <link>http://yoyoxie0729.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AD%98%E9%99%8D%E9%85%8D%E5%90%8E-oracle-11g-%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
       <pubDate>Fri, 15 Mar 2019 17:12:02 +0000</pubDate>
       
-      <guid>https://yoyoxie0729.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AD%98%E9%99%8D%E9%85%8D%E5%90%8E-oracle-11g-%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <guid>http://yoyoxie0729.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AD%98%E9%99%8D%E9%85%8D%E5%90%8E-oracle-11g-%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
       <description>背景 客户现场某台服务器利用率不达标，被服务商告知需要降低内存配置，降配后数据库无法正常启动
 排查步骤 检查Oracle数据库启动状态时发现无进程 sqlplus / as sysdba登陆后，运行startup命令报错MEMORY_TARGET not supported on this system 解决问题 通过搜索引擎定位到问题可能出现在pfile或spfile 通过spfile创建pfile，create pfile=&#39;path/to/pfile&#39; from spfile 修改pfile的MEMORY_TARGET的值到合适大小 用pfile启动数据库，成功 通过pfile创建spfile create spfile=&amp;#39;path/to/spfile&amp;#39; from pfile=&amp;#39;path/to/pfile&amp;#39; 重启数据库 问题得到解决👌🏻 </description>
       <content>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
