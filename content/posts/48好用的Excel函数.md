@@ -1,5 +1,5 @@
 ---
-title: 西北好用的Excel函数
+title: 48好用的 Excel 函数
 date: 2018-03-29 09:12:37
 ---
 ## 真正体会到了Excel的强大

@@ -6,7 +6,7 @@ set -e
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
 # 构建静态内容
-hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
+hugo
 
 # 切换到 Public 文件夹
 cd public
@@ -17,7 +17,7 @@ git add .
 # 提交更改
 msg="rebuilding site $(date)"
 if [ -n "$*" ]; then
-msg="$*"
+    msg="$*"
 fi
 git commit -m "$msg"
 

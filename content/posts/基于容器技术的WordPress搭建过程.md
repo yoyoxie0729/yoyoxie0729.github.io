@@ -1,5 +1,5 @@
 ---
-title: 基于容器技术的WordPress搭建过程
+title: 基于容器的 WordPress 搭建过程
 date: 2018-04-02 16:05:42
 ---
 ### 安装Docker
