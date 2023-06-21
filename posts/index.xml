@@ -195,11 +195,11 @@ VLOOKUP函数 =VLOOKUP(lookup_value, table_array, clo_index_num, [range_lookup])
     </item>
     
     <item>
-      <title>这些 SQL 函数原来西北好用（未完）</title>
-      <link>https://yoyoxie0729.github.io/posts/%E8%BF%99%E4%BA%9Bsql%E5%87%BD%E6%95%B0%E8%A5%BF%E5%8C%97%E5%A5%BD%E7%94%A8%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/</link>
+      <title>这些 SQL 函数原来48好用（未完）</title>
+      <link>https://yoyoxie0729.github.io/posts/%E8%BF%99%E4%BA%9Bsql%E5%87%BD%E6%95%B048%E5%A5%BD%E7%94%A8%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/</link>
       <pubDate>Tue, 27 Mar 2018 14:34:41 +0000</pubDate>
       
-      <guid>https://yoyoxie0729.github.io/posts/%E8%BF%99%E4%BA%9Bsql%E5%87%BD%E6%95%B0%E8%A5%BF%E5%8C%97%E5%A5%BD%E7%94%A8%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/</guid>
+      <guid>https://yoyoxie0729.github.io/posts/%E8%BF%99%E4%BA%9Bsql%E5%87%BD%E6%95%B048%E5%A5%BD%E7%94%A8%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/</guid>
       <description>函数部分 Oracle 11g版本WMSYS.WM_CONCAT()函数 -- 合并记录，逗号隔开 SELECT &amp;#39;字段1&amp;#39;,&amp;#39;字段2&amp;#39;,WMSYS.WM_CONCAT(&amp;#39;字段3&amp;#39;) FROM &amp;#39;表1&amp;#39; GROUP BY &amp;#39;字段1&amp;#39;,&amp;#39;字段2&amp;#39; ORDER BY &amp;#39;字段1&amp;#39;; 效果如下 原表 字段1 字段2 字段3 A A1 AA2 A A1 AA3 B B1 BB1 B B1 BB2 结果表 字段1 字段2 WMSYS.WM_CONCAT(字段3) A A1 AA2,AA3 B B1 BB1,BB2 </description>
       <content>&lt;h2 id=&#34;函数部分&#34;&gt;函数部分&lt;/h2&gt;
 &lt;h3 id=&#34;oracle-11g版本wmsyswm_concat函数&#34;&gt;Oracle 11g版本&lt;code&gt;WMSYS.WM_CONCAT()&lt;/code&gt;函数&lt;/h3&gt;
