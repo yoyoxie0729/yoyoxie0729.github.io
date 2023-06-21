@@ -38,5 +38,279 @@
 </content>
     </item>
     
+    <item>
+      <title>基于容器技术的WordPress搭建过程</title>
+      <link>https://yoyoxie0729.github.io/posts/%E5%9F%BA%E4%BA%8E%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%E7%9A%84wordpress%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Mon, 02 Apr 2018 16:05:42 +0000</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/posts/%E5%9F%BA%E4%BA%8E%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%E7%9A%84wordpress%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/</guid>
+      <description>安装Docker 启动名为wordpressdb的MySQL容器
+$ docker run --name wordpressdb -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 构建镜像后，用镜像启动一个名为phpwithmysql的容器
+$ docker run --name wordpress -v &amp;#34;$PWD/&amp;#34;:/var/www/html -p 8888:80 -d phpwithmysql </description>
+      <content>&lt;h3 id=&#34;安装docker&#34;&gt;安装Docker&lt;/h3&gt;
+&lt;p&gt;启动名为&lt;code&gt;wordpressdb&lt;/code&gt;的&lt;code&gt;MySQL&lt;/code&gt;容器&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ docker run --name wordpressdb -e MYSQL_ROOT_PASSWORD&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;password -d mysql:5.7
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;构建镜像后，用镜像启动一个名为phpwithmysql的容器&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ docker run --name wordpress -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$PWD&lt;span style=&#34;color:#e6db74&#34;&gt;/&amp;#34;&lt;/span&gt;:/var/www/html -p 8888:80 -d phpwithmysql
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+    </item>
+    
+    <item>
+      <title>ETL数据抽取过程中遇到的问题以及解决方案</title>
+      <link>https://yoyoxie0729.github.io/posts/etl%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Sat, 31 Mar 2018 11:33:06 +0000</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/posts/etl%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <description>今天遇到的问题 SQL语句在客户端做查询时，结果集能够正常返回，但到Kettle中始终报错，返回Timestamp : Unable to get timestamp from resultset等错误信息并包含中文乱码。
+发现问题 在看到timestamp之后我瞬间反应过来，可能是使用的str_to_date()函数出现了问题，当源字段为非正常日期格式或者为0或null值时，str_to_date()容易报错。
+解决方案 在Kettle的数据库连接配置中加入如下键值对，将非正常值转化为null值：
+zeroDateTimeBehavior:convertToNull 成果 成功查询出结果！
+心得 SQL客户端固然方便，但也正因为加入了太多自动化的功能、配置，容易让基础不扎实的用户在其他不同的环境下屡屡出错，碰壁。（就像我一样）
+基础知识的掌握程度决定了解决问题的速度 &amp;ndash; 我瞎编的</description>
+      <content>&lt;h2 id=&#34;今天遇到的问题&#34;&gt;今天遇到的问题&lt;/h2&gt;
+&lt;p&gt;SQL语句在客户端做查询时，结果集能够正常返回，但到Kettle中始终报错，返回&lt;code&gt;Timestamp : Unable to get timestamp from resultset&lt;/code&gt;等错误信息并包含中文乱码。&lt;/p&gt;
+&lt;h3 id=&#34;发现问题&#34;&gt;&lt;strong&gt;发现问题&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;在看到&lt;code&gt;timestamp&lt;/code&gt;之后我瞬间反应过来，可能是使用的&lt;code&gt;str_to_date()&lt;/code&gt;函数出现了问题，当源字段为非正常日期格式或者为0或null值时，&lt;code&gt;str_to_date()&lt;/code&gt;容易报错。&lt;/p&gt;
+&lt;h3 id=&#34;解决方案&#34;&gt;&lt;strong&gt;解决方案&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;在Kettle的数据库连接配置中加入如下键值对，将非正常值转化为null值：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;zeroDateTimeBehavior:convertToNull
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;成果&#34;&gt;&lt;strong&gt;成果&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;成功查询出结果！&lt;/p&gt;
+&lt;h3 id=&#34;心得&#34;&gt;&lt;strong&gt;心得&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;SQL客户端固然方便，但也正因为加入了太多自动化的功能、配置，容易让基础不扎实的用户在其他不同的环境下屡屡出错，碰壁。（就像我一样）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;基础知识的掌握程度决定了解决问题的速度
+&amp;ndash; 我瞎编的&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>利用ffmpeg提取音频缩减大小</title>
+      <link>https://yoyoxie0729.github.io/posts/%E5%88%A9%E7%94%A8ffmpeg%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91%E7%BC%A9%E5%87%8F%E5%A4%A7%E5%B0%8F/</link>
+      <pubDate>Fri, 30 Mar 2018 11:55:14 +0000</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/posts/%E5%88%A9%E7%94%A8ffmpeg%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91%E7%BC%A9%E5%87%8F%E5%A4%A7%E5%B0%8F/</guid>
+      <description>记笔记 今天拿到一个音频文件，文件大小超出某平台上传限制，便着手在不改变音频长度的前提下缩减音频大小。
+首先想到的是Adobe家大名鼎鼎的Media Encoder CC，却不曾想已过期许久。 接着想到用Fianl Cut Pro X导出音频，尝试了调整码率，但输出文件并不能达到需求的文件大小。 一番Google之后，决定用ffmpeg尝试压缩 安装编译完成后，打开终端键入
+$ ffmpeg -i input.mp3 -vn -ab 128k output.mp3 Done！成功输出指定码率的音频文件，文件大小符合要求 结论：一名合格的程序员50%的工作时间要花在用Google去填坑</description>
+      <content>&lt;h2 id=&#34;记笔记&#34;&gt;记笔记&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;今天拿到一个音频文件，文件大小超出某平台上传限制，便着手在不改变音频长度的前提下缩减音频大小。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先想到的是Adobe家大名鼎鼎的Media Encoder CC，却不曾想已过期许久。
+接着想到用Fianl Cut Pro X导出音频，尝试了调整码率，但输出文件并不能达到需求的文件大小。
+一番Google之后，决定用ffmpeg尝试压缩
+安装编译完成后，打开终端键入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ffmpeg -i input.mp3 -vn -ab 128k output.mp3
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Done！成功输出指定码率的音频文件，文件大小符合要求
+&lt;strong&gt;结论：一名合格的程序员50%的工作时间要花在用Google去填坑&lt;/strong&gt;&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>西北好用的Excel函数</title>
+      <link>https://yoyoxie0729.github.io/posts/48%E5%A5%BD%E7%94%A8%E7%9A%84excel%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Thu, 29 Mar 2018 09:12:37 +0000</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/posts/48%E5%A5%BD%E7%94%A8%E7%9A%84excel%E5%87%BD%E6%95%B0/</guid>
+      <description>真正体会到了Excel的强大 查找类函数 实现功能：两张表利用关联字段，用B表字段填充补全A表
+VLOOKUP函数 =VLOOKUP(lookup_value, table_array, clo_index_num, [range_lookup]) INDEX函数配合MATCH函数 =INDEX(array, row_num, [column_num]) 实用类函数 实现功能：批量合并单元格
+遇到这样一个超级奇葩的需求，该怎么办
+第一步 例如列A为合并单元格目标列 在列A后添加一列列B B1中键入数字1，在A2键入以下函数 =IF(A2=A1,B1,B1+1) 下拉填充至尾行实现按类编号 第二步 新建列C C1对B1取模运算 =MOD(B1,2) 下拉填充至尾行实现区分类别 第三步 新建列D 在D1键入 =IF(C1=1,&amp;#34;text&amp;#34;,0) 下拉填充至尾行实现按单元格类型分类 第四步 选中列D Ctrl + G打开定位 进入定位条件，选中公式类型中的数字类型，确定 合并单元格 再次Ctrl + G打开定位 进入定位条件，选中公式类型中的文字类型，确定 合并单元格 第五步 选中列D 格式刷复制格式 到列A应用至尾行 第六步 删除列B,列C,列D 批量合并单元格完成 </description>
+      <content>&lt;h2 id=&#34;真正体会到了excel的强大&#34;&gt;真正体会到了Excel的强大&lt;/h2&gt;
+&lt;h3 id=&#34;查找类函数&#34;&gt;查找类函数&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;实现功能：两张表利用关联字段，用B表字段填充补全A表&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;VLOOKUP&lt;/code&gt;函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-excel&#34; data-lang=&#34;excel&#34;&gt;=VLOOKUP(lookup_value, table_array, clo_index_num, [range_lookup])
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;INDEX&lt;/code&gt;函数配合&lt;code&gt;MATCH&lt;/code&gt;函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-excel&#34; data-lang=&#34;excel&#34;&gt;=INDEX(array, row_num, [column_num])
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;实用类函数&#34;&gt;实用类函数&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;实现功能：批量合并单元格&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;遇到这样一个超级奇葩的需求，该怎么办&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;第一步
+&lt;ul&gt;
+&lt;li&gt;例如&lt;code&gt;列A&lt;/code&gt;为合并单元格目标列&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;列A&lt;/code&gt;后添加一列&lt;code&gt;列B&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;B1&lt;/code&gt;中键入数字&lt;code&gt;1&lt;/code&gt;，在&lt;code&gt;A2&lt;/code&gt;键入以下函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-excel&#34; data-lang=&#34;excel&#34;&gt;=IF(A2=A1,B1,B1+1)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;下拉填充至尾行实现按类编号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第二步
+&lt;ul&gt;
+&lt;li&gt;新建&lt;code&gt;列C&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C1&lt;/code&gt;对&lt;code&gt;B1&lt;/code&gt;取模运算&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-excel&#34; data-lang=&#34;excel&#34;&gt;=MOD(B1,2)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;下拉填充至尾行实现区分类别&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第三步
+&lt;ul&gt;
+&lt;li&gt;新建&lt;code&gt;列D&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;D1&lt;/code&gt;键入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-excel&#34; data-lang=&#34;excel&#34;&gt;=IF(C1=1,&amp;#34;text&amp;#34;,0)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;下拉填充至尾行实现按单元格类型分类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第四步
+&lt;ul&gt;
+&lt;li&gt;选中&lt;code&gt;列D&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Ctrl + G&lt;/code&gt;打开定位&lt;/li&gt;
+&lt;li&gt;进入定位条件，选中公式类型中的数字类型，&lt;code&gt;确定&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;合并单元格&lt;/li&gt;
+&lt;li&gt;再次&lt;code&gt;Ctrl + G&lt;/code&gt;打开定位&lt;/li&gt;
+&lt;li&gt;进入定位条件，选中公式类型中的文字类型，&lt;code&gt;确定&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;合并单元格&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第五步
+&lt;ul&gt;
+&lt;li&gt;选中&lt;code&gt;列D&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;格式刷复制格式&lt;/li&gt;
+&lt;li&gt;到&lt;code&gt;列A&lt;/code&gt;应用至尾行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第六步
+&lt;ul&gt;
+&lt;li&gt;删除&lt;code&gt;列B&lt;/code&gt;,&lt;code&gt;列C&lt;/code&gt;,&lt;code&gt;列D&lt;/code&gt;
+&lt;strong&gt;批量合并单元格完成&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>这些 SQL 函数原来西北好用（未完）</title>
+      <link>https://yoyoxie0729.github.io/posts/%E8%BF%99%E4%BA%9Bsql%E5%87%BD%E6%95%B0%E8%A5%BF%E5%8C%97%E5%A5%BD%E7%94%A8%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/</link>
+      <pubDate>Tue, 27 Mar 2018 14:34:41 +0000</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/posts/%E8%BF%99%E4%BA%9Bsql%E5%87%BD%E6%95%B0%E8%A5%BF%E5%8C%97%E5%A5%BD%E7%94%A8%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/</guid>
+      <description>函数部分 Oracle 11g版本WMSYS.WM_CONCAT()函数 -- 合并记录，逗号隔开 SELECT &amp;#39;字段1&amp;#39;,&amp;#39;字段2&amp;#39;,WMSYS.WM_CONCAT(&amp;#39;字段3&amp;#39;) FROM &amp;#39;表1&amp;#39; GROUP BY &amp;#39;字段1&amp;#39;,&amp;#39;字段2&amp;#39; ORDER BY &amp;#39;字段1&amp;#39;; 效果如下 原表 字段1 字段2 字段3 A A1 AA2 A A1 AA3 B B1 BB1 B B1 BB2 结果表 字段1 字段2 WMSYS.WM_CONCAT(字段3) A A1 AA2,AA3 B B1 BB1,BB2 </description>
+      <content>&lt;h2 id=&#34;函数部分&#34;&gt;函数部分&lt;/h2&gt;
+&lt;h3 id=&#34;oracle-11g版本wmsyswm_concat函数&#34;&gt;Oracle 11g版本&lt;code&gt;WMSYS.WM_CONCAT()&lt;/code&gt;函数&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;-- 合并记录，逗号隔开
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;字段1&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;字段2&amp;#39;&lt;/span&gt;,WMSYS.WM_CONCAT(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;字段3&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;表1&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;GROUP&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;字段1&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;字段2&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ORDER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;字段1&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;效果如下&#34;&gt;效果如下&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;原表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;字段1&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;字段2&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;字段3&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;AA2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;AA3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;B&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;B1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BB1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;B&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;B1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BB2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;结果表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;字段1&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;字段2&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;code&gt;WMSYS.WM_CONCAT(字段3)&lt;/code&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;AA2,AA3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;B&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;B1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BB1,BB2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>开源博客 Hexo 部署过程全记录</title>
+      <link>https://yoyoxie0729.github.io/posts/hexo%E5%BB%BA%E7%AB%99%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Tue, 27 Mar 2018 00:00:15 +0000</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/posts/hexo%E5%BB%BA%E7%AB%99%E8%AE%B0%E5%BD%95/</guid>
+      <description>基于 Node.js 的开源博客软件 Hexo 部署流程 安装 HomeBrew $ /usr/bin/ruby -e &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;#34; 安装 npm $ brew intall npm 安装 hexo-cli $ npm install -g hexo-cli 初始化 Hexo $ hexo init blog 生成第一篇博客 $ hexo n &amp;#34;Hello,Hexo!&amp;#34; 用 Markdown 语法编写博客 $ vim Hellp,Hexo!.md 生成静态资源并本地发布测试 $ hexo g $ hexo s 或
+$ hexo s -g 访问 http://localhost:4000/ 查看部署成果 修改站点配置文件 _config.yml # Deployment ## Docs: https://hexo.io/docs/deployment.html deploy: type: git repo: https://github.com/yourname/yourname.github.io.git branch: master 发布博客 $ hexo clean $ hexo g $ hexo d Nice!</description>
+      <content>&lt;h2 id=&#34;基于-nodejs-的开源博客软件-hexo-部署流程&#34;&gt;基于 &lt;code&gt;Node.js&lt;/code&gt; 的开源博客软件 &lt;code&gt;Hexo&lt;/code&gt; 部署流程&lt;/h2&gt;
+&lt;h3 id=&#34;安装-homebrew&#34;&gt;安装 HomeBrew&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ /usr/bin/ruby -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;安装-npm&#34;&gt;安装 npm&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew intall npm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;安装-hexo-cli&#34;&gt;安装 hexo-cli&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ npm install -g hexo-cli
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;初始化-hexo&#34;&gt;初始化 Hexo&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo init blog
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;生成第一篇博客&#34;&gt;生成第一篇博客&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo n &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello,Hexo!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;用-markdown-语法编写博客&#34;&gt;用 &lt;code&gt;Markdown&lt;/code&gt; 语法编写博客&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ vim Hellp,Hexo!.md
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;生成静态资源并本地发布测试&#34;&gt;生成静态资源并本地发布测试&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo g
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo s -g
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;访问-httplocalhost4000-查看部署成果&#34;&gt;访问 &lt;code&gt;http://localhost:4000/&lt;/code&gt; 查看部署成果&lt;/h3&gt;
+&lt;h3 id=&#34;修改站点配置文件-_configyml&#34;&gt;修改站点配置文件 &lt;code&gt;_config.yml&lt;/code&gt;&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deployment&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Docs: https://hexo.io/docs/deployment.html&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;deploy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;type&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;git&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;repo&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;https://github.com/yourname/yourname.github.io.git&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;branch&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;master&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;发布博客&#34;&gt;发布博客&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo clean
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo g
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;nice-现在访问-httpyournamegithubiogit-查看最终部署成果&#34;&gt;Nice! 现在访问 &lt;code&gt;http://yourname.github.io.git/&lt;/code&gt; 查看最终部署成果&lt;/h3&gt;
+</content>
+    </item>
+    
   </channel>
 </rss>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>ffmpeg :: YHDEV&#39;s Cave</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://yoyoxie0729.github.io/tags/ffmpeg/" />
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://yoyoxie0729.github.io/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="https://yoyoxie0729.github.io/img/theme-colors/green.png">
+  <link rel="apple-touch-icon" href="https://yoyoxie0729.github.io/img/theme-colors/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ffmpeg">
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://yoyoxie0729.github.io/tags/ffmpeg/" />
+<meta property="og:site_name" content="YHDEV&#39;s Cave" />
+
+  
+    <meta property="og:image" content="https://yoyoxie0729.github.io/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+
+
+
+  <link href="/tags/ffmpeg/index.xml" rel="alternate" type="application/rss+xml" title="YHDEV&#39;s Cave" />
+
+
+
+
+
+
+
+
+
+</head>
+<body class="green">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    YHDEV&#39;s Cave
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+        
+          <li><a href="/showcase" >Showcase</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+  <h1>Posts for: #ffmpeg</h1>
+  
+  <div class="posts">
+    
+      <article class="post on-list">
+        <h1 class="post-title">
+          <a href="https://yoyoxie0729.github.io/posts/%E5%88%A9%E7%94%A8ffmpeg%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91%E7%BC%A9%E5%87%8F%E5%A4%A7%E5%B0%8F/">利用ffmpeg提取音频缩减大小</a>
+        </h1>
+        <div class="post-meta"><time class="post-date">2018-03-30</time></div>
+
+        
+          <span class="post-tags">
+            
+            #<a href="https://yoyoxie0729.github.io/tags/ffmpeg/">ffmpeg</a>&nbsp;
+            
+            #<a href="https://yoyoxie0729.github.io/tags/command-line-tools/">command line tools</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+
+        <div class="post-content">
+          
+            记笔记 今天拿到一个音频文件，文件大小超出某平台上传限制，便着手在不改变音频长度的前提下缩减音频大小。
+首先想到的是Adobe家大名鼎鼎的Media Encoder CC，却不曾想已过期许久。 接着想到用Fianl Cut Pro X导出音频，尝试了调整码率，但输出文件并不能达到需求的文件大小。 一番Google之后，决定用ffmpeg尝试压缩 安装编译完成后，打开终端键入
+$ ffmpeg -i input.mp3 -vn -ab 128k output.mp3 Done！成功输出指定码率的音频文件，文件大小符合要求 结论：一名合格的程序员50%的工作时间要花在用Google去填坑
+          
+        </div>
+
+        
+          <div>
+            <a class="read-more button" href="/posts/%E5%88%A9%E7%94%A8ffmpeg%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91%E7%BC%A9%E5%87%8F%E5%A4%A7%E5%B0%8F/">Read more →</a>
+          </div>
+        
+      </article>
+    
+
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+    
+  </div>
+</div>
+
+  </div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

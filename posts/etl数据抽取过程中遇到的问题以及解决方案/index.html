@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>ETL数据抽取过程中遇到的问题以及解决方案 :: YHDEV&#39;s Cave</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="今天遇到的问题 SQL语句在客户端做查询时，结果集能够正常返回，但到Kettle中始终报错，返回Timestamp : Unable to get timestamp from resultset等错误信息并包含中文乱码。
+发现问题 在看到timestamp之后我瞬间反应过来，可能是使用的str_to_date()函数出现了问题，当源字段为非正常日期格式或者为0或null值时，str_to_date()容易报错。
+解决方案 在Kettle的数据库连接配置中加入如下键值对，将非正常值转化为null值：
+zeroDateTimeBehavior:convertToNull 成果 成功查询出结果！
+心得 SQL客户端固然方便，但也正因为加入了太多自动化的功能、配置，容易让基础不扎实的用户在其他不同的环境下屡屡出错，碰壁。（就像我一样）
+基础知识的掌握程度决定了解决问题的速度 &amp;ndash; 我瞎编的" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://yoyoxie0729.github.io/posts/etl%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" />
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://yoyoxie0729.github.io/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="https://yoyoxie0729.github.io/img/theme-colors/green.png">
+  <link rel="apple-touch-icon" href="https://yoyoxie0729.github.io/img/theme-colors/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="ETL数据抽取过程中遇到的问题以及解决方案">
+<meta property="og:description" content="今天遇到的问题 SQL语句在客户端做查询时，结果集能够正常返回，但到Kettle中始终报错，返回Timestamp : Unable to get timestamp from resultset等错误信息并包含中文乱码。
+发现问题 在看到timestamp之后我瞬间反应过来，可能是使用的str_to_date()函数出现了问题，当源字段为非正常日期格式或者为0或null值时，str_to_date()容易报错。
+解决方案 在Kettle的数据库连接配置中加入如下键值对，将非正常值转化为null值：
+zeroDateTimeBehavior:convertToNull 成果 成功查询出结果！
+心得 SQL客户端固然方便，但也正因为加入了太多自动化的功能、配置，容易让基础不扎实的用户在其他不同的环境下屡屡出错，碰壁。（就像我一样）
+基础知识的掌握程度决定了解决问题的速度 &amp;ndash; 我瞎编的" />
+<meta property="og:url" content="https://yoyoxie0729.github.io/posts/etl%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" />
+<meta property="og:site_name" content="YHDEV&#39;s Cave" />
+
+  
+    <meta property="og:image" content="https://yoyoxie0729.github.io/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2018-03-31 11:33:06 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="green">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    YHDEV&#39;s Cave
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+        
+          <li><a href="/showcase" >Showcase</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://yoyoxie0729.github.io/posts/etl%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">ETL数据抽取过程中遇到的问题以及解决方案</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2018-03-31</time></div>
+
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h2 id="今天遇到的问题">今天遇到的问题<a href="#今天遇到的问题" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>SQL语句在客户端做查询时，结果集能够正常返回，但到Kettle中始终报错，返回<code>Timestamp : Unable to get timestamp from resultset</code>等错误信息并包含中文乱码。</p>
+<h3 id="发现问题"><strong>发现问题</strong><a href="#发现问题" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>在看到<code>timestamp</code>之后我瞬间反应过来，可能是使用的<code>str_to_date()</code>函数出现了问题，当源字段为非正常日期格式或者为0或null值时，<code>str_to_date()</code>容易报错。</p>
+<h3 id="解决方案"><strong>解决方案</strong><a href="#解决方案" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>在Kettle的数据库连接配置中加入如下键值对，将非正常值转化为null值：</p>
+<pre tabindex="0"><code>zeroDateTimeBehavior:convertToNull
+</code></pre><h3 id="成果"><strong>成果</strong><a href="#成果" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>成功查询出结果！</p>
+<h3 id="心得"><strong>心得</strong><a href="#心得" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>SQL客户端固然方便，但也正因为加入了太多自动化的功能、配置，容易让基础不扎实的用户在其他不同的环境下屡屡出错，碰壁。（就像我一样）</p>
+<blockquote>
+<p>基础知识的掌握程度决定了解决问题的速度
+&ndash; 我瞎编的</p>
+</blockquote>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="https://yoyoxie0729.github.io/posts/%E5%9F%BA%E4%BA%8E%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%E7%9A%84wordpress%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/">
+                <span class="button__icon">←</span>
+                <span class="button__text">基于容器技术的WordPress搭建过程</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="https://yoyoxie0729.github.io/posts/%E5%88%A9%E7%94%A8ffmpeg%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91%E7%BC%A9%E5%87%8F%E5%A4%A7%E5%B0%8F/">
+                <span class="button__text">利用ffmpeg提取音频缩减大小</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
