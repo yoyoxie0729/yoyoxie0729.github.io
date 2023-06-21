@@ -22,4 +22,4 @@ fi
 git commit -m "$msg"
 
 # 推送到远程仓库
-git push origin main#
+git push origin main

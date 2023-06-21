@@ -1,4 +1,4 @@
-baseURL = 'https://yoyoxie0729.github.io/'
+baseURL = 'https://yoyoxie0729.github.io'
 languageCode = 'zh-cn'
 title = "YHDEV's Cave"
 theme = "terminal"
