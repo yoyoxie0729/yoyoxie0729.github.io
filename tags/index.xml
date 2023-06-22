@@ -5,6 +5,27 @@
     <link>https://yoyoxie0729.github.io/tags/</link>
     <description>Recent content in Tags on YHDEV&#39;s Cave</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://yoyoxie0729.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Fri, 23 Jun 2023 00:38:08 +0800</lastBuildDate><atom:link href="https://yoyoxie0729.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>https://yoyoxie0729.github.io/tags/blog/</link>
+      <pubDate>Fri, 23 Jun 2023 00:38:08 +0800</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/tags/blog/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>DevOps</title>
+      <link>https://yoyoxie0729.github.io/tags/devops/</link>
+      <pubDate>Fri, 23 Jun 2023 00:38:08 +0800</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/tags/devops/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
   </channel>
 </rss>

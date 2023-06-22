@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on YHDEV&#39;s Cave</title>
+    <link>https://yoyoxie0729.github.io/tags/blog/</link>
+    <description>Recent content in Blog on YHDEV&#39;s Cave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 23 Jun 2023 00:38:08 +0800</lastBuildDate><atom:link href="https://yoyoxie0729.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基于hugo的博客搭建记录</title>
+      <link>https://yoyoxie0729.github.io/posts/%E5%9F%BA%E4%BA%8Ehugo%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Fri, 23 Jun 2023 00:38:08 +0800</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/posts/%E5%9F%BA%E4%BA%8Ehugo%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</guid>
+      <description>Homebrew 安装 hugo brew install hugo </description>
+      <content>&lt;h2 id=&#34;homebrew-安装-hugo&#34;&gt;Homebrew 安装 hugo&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install hugo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+    </item>
+    
+  </channel>
+</rss>
