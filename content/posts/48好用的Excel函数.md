@@ -1,7 +1,15 @@
----
-title: 好用的 Excel 函数
-date: 2018-03-29 09:12:37
----
++++
+title = "好用的 Excel 函数"
+date = "2018-03-29T09:12:37+08:00"
+author = "YHDEV"
+cover = "img/Excel-Banner-1-1100x619.png"
+tags = ["Excel", "DataDev"]
+keywords = ["excel"]
+description = "真正体会到了 Excel 的强大，简单记录 vlookup、index+match 等函数的使用"
+showFullContent = false
+readingTime = true
+hideComments = false
++++
 ## 真正体会到了Excel的强大
 ### 查找类函数
 **实现功能：两张表利用关联字段，用B表字段填充补全A表**

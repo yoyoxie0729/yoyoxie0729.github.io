@@ -1,7 +1,16 @@
----
-title: 利用 ffmpeg 提取音频缩减大小
-date: 2018-03-30 11:55:14
----
++++
+title = "利用 ffmpeg 提取音频缩减大小"
+date = "2018-03-30T11:55:14+08:00"
+author = "YHDEV"
+cover = "img/FFmpeg_Logo_new.svg.png"
+tags = ["Media", "DevOps"]
+keywords = ["ffmpeg"]
+description = "ffmpeg不改变音频长度的前提下缩减音频大小"
+showFullContent = false
+readingTime = true
+hideComments = false
++++
+
 ## 记笔记
 > 今天拿到一个音频文件，文件大小超出某平台上传限制，便着手在不改变音频长度的前提下缩减音频大小。
 

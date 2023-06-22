@@ -1,8 +1,15 @@
----
-title: 服务器内存降配后 Oracle 11g 无法启动问题的解决方案
-date: 2019-03-15 17:12:02
-draft: false
----
++++
+title = "服务器内存降配后 Oracle 11g 无法启动问题的解决方案"
+date = "2019-03-15T17:12:02+08:00"
+author = "YHDEV"
+cover = "img/oracle.jpg"
+tags = ["DevOps", "Database"]
+keywords = ["oracle"]
+description = "客户现场某台服务器降配后数据库无法正常启动，问题排查及解决的记录"
+showFullContent = false
+readingTime = true
+hideComments = false
++++
 
 ## 背景
 客户现场某台服务器利用率不达标，被服务商告知需要降低内存配置，降配后数据库无法正常启动

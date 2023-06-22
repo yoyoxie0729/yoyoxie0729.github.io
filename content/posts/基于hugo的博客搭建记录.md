@@ -5,11 +5,10 @@ author = "YHDEV"
 cover = "img/Logo_of_Hugo_the_static_website_generator.svg"
 tags = ["Blog", "DevOps"]
 keywords = ["hugo", "ghpages"]
-description = ""
+description = "搭建 hugo 博客并发布至 github pages 的流水账"
 showFullContent = false
-readingTime = false
+readingTime = true
 hideComments = false
-color = "" #color from the theme settings
 +++
 ## 基础环境
 - Git

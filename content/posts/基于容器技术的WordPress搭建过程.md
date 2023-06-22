@@ -1,7 +1,15 @@
----
-title: 基于容器的 WordPress 搭建过程
-date: 2018-04-02 16:05:42
----
++++
+title = "基于容器的 WordPress 搭建过程"
+date = "2018-04-02T16:05:42+08:00"
+author = "YHDEV"
+cover = ""
+tags = ["Blog", "WordPress"]
+keywords = ["wordpress"]
+description = "Docker WordPress 搭建过程"
+showFullContent = false
+readingTime = true
+hideComments = false
++++
 ### 安装Docker
 启动名为`wordpressdb`的`MySQL`容器
 ```bash
