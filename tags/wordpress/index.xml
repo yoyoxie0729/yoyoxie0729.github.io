@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WordPress on YHDEV&#39;s Cave</title>
+    <link>https://yoyoxie0729.github.io/tags/wordpress/</link>
+    <description>Recent content in WordPress on YHDEV&#39;s Cave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Apr 2018 16:05:42 +0800</lastBuildDate><atom:link href="https://yoyoxie0729.github.io/tags/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基于容器的 WordPress 搭建过程</title>
+      <link>https://yoyoxie0729.github.io/posts/%E5%9F%BA%E4%BA%8E%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%E7%9A%84wordpress%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Mon, 02 Apr 2018 16:05:42 +0800</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/posts/%E5%9F%BA%E4%BA%8E%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%E7%9A%84wordpress%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/</guid>
+      <description>安装Docker 启动名为wordpressdb的MySQL容器
+$ docker run --name wordpressdb -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 构建镜像后，用镜像启动一个名为phpwithmysql的容器
+$ docker run --name wordpress -v &amp;#34;$PWD/&amp;#34;:/var/www/html -p 8888:80 -d phpwithmysql </description>
+      <content>&lt;h3 id=&#34;安装docker&#34;&gt;安装Docker&lt;/h3&gt;
+&lt;p&gt;启动名为&lt;code&gt;wordpressdb&lt;/code&gt;的&lt;code&gt;MySQL&lt;/code&gt;容器&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ docker run --name wordpressdb -e MYSQL_ROOT_PASSWORD&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;password -d mysql:5.7
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;构建镜像后，用镜像启动一个名为phpwithmysql的容器&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ docker run --name wordpress -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$PWD&lt;span style=&#34;color:#e6db74&#34;&gt;/&amp;#34;&lt;/span&gt;:/var/www/html -p 8888:80 -d phpwithmysql
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+    </item>
+    
+  </channel>
+</rss>

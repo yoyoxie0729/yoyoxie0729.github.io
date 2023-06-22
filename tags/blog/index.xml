@@ -93,5 +93,64 @@
 </content>
     </item>
     
+    <item>
+      <title>基于容器的 WordPress 搭建过程</title>
+      <link>https://yoyoxie0729.github.io/posts/%E5%9F%BA%E4%BA%8E%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%E7%9A%84wordpress%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Mon, 02 Apr 2018 16:05:42 +0800</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/posts/%E5%9F%BA%E4%BA%8E%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%E7%9A%84wordpress%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/</guid>
+      <description>安装Docker 启动名为wordpressdb的MySQL容器
+$ docker run --name wordpressdb -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 构建镜像后，用镜像启动一个名为phpwithmysql的容器
+$ docker run --name wordpress -v &amp;#34;$PWD/&amp;#34;:/var/www/html -p 8888:80 -d phpwithmysql </description>
+      <content>&lt;h3 id=&#34;安装docker&#34;&gt;安装Docker&lt;/h3&gt;
+&lt;p&gt;启动名为&lt;code&gt;wordpressdb&lt;/code&gt;的&lt;code&gt;MySQL&lt;/code&gt;容器&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ docker run --name wordpressdb -e MYSQL_ROOT_PASSWORD&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;password -d mysql:5.7
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;构建镜像后，用镜像启动一个名为phpwithmysql的容器&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ docker run --name wordpress -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$PWD&lt;span style=&#34;color:#e6db74&#34;&gt;/&amp;#34;&lt;/span&gt;:/var/www/html -p 8888:80 -d phpwithmysql
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+    </item>
+    
+    <item>
+      <title>开源博客 Hexo 部署过程全记录</title>
+      <link>https://yoyoxie0729.github.io/posts/hexo%E5%BB%BA%E7%AB%99%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Tue, 27 Mar 2018 00:00:15 +0800</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/posts/hexo%E5%BB%BA%E7%AB%99%E8%AE%B0%E5%BD%95/</guid>
+      <description>基于 Node.js 的开源博客软件 Hexo 部署流程 安装 HomeBrew $ /usr/bin/ruby -e &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;#34; 安装 npm $ brew intall npm 安装 hexo-cli $ npm install -g hexo-cli 初始化 Hexo $ hexo init blog 生成第一篇博客 $ hexo n &amp;#34;Hello,Hexo!&amp;#34; 用 Markdown 语法编写博客 $ vim Hellp,Hexo!.md 生成静态资源并本地发布测试 $ hexo g $ hexo s 或
+$ hexo s -g 访问 http://localhost:4000/ 查看部署成果 修改站点配置文件 _config.yml # Deployment ## Docs: https://hexo.io/docs/deployment.html deploy: type: git repo: https://github.com/yourname/yourname.github.io.git branch: master 发布博客 $ hexo clean $ hexo g $ hexo d Nice!</description>
+      <content>&lt;h2 id=&#34;基于-nodejs-的开源博客软件-hexo-部署流程&#34;&gt;基于 &lt;code&gt;Node.js&lt;/code&gt; 的开源博客软件 &lt;code&gt;Hexo&lt;/code&gt; 部署流程&lt;/h2&gt;
+&lt;h3 id=&#34;安装-homebrew&#34;&gt;安装 HomeBrew&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ /usr/bin/ruby -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;安装-npm&#34;&gt;安装 npm&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew intall npm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;安装-hexo-cli&#34;&gt;安装 hexo-cli&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ npm install -g hexo-cli
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;初始化-hexo&#34;&gt;初始化 Hexo&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo init blog
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;生成第一篇博客&#34;&gt;生成第一篇博客&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo n &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello,Hexo!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;用-markdown-语法编写博客&#34;&gt;用 &lt;code&gt;Markdown&lt;/code&gt; 语法编写博客&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ vim Hellp,Hexo!.md
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;生成静态资源并本地发布测试&#34;&gt;生成静态资源并本地发布测试&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo g
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo s -g
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;访问-httplocalhost4000-查看部署成果&#34;&gt;访问 &lt;code&gt;http://localhost:4000/&lt;/code&gt; 查看部署成果&lt;/h3&gt;
+&lt;h3 id=&#34;修改站点配置文件-_configyml&#34;&gt;修改站点配置文件 &lt;code&gt;_config.yml&lt;/code&gt;&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deployment&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Docs: https://hexo.io/docs/deployment.html&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;deploy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;type&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;git&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;repo&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;https://github.com/yourname/yourname.github.io.git&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;branch&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;master&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;发布博客&#34;&gt;发布博客&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo clean
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo g
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hexo d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;nice-现在访问-httpyournamegithubiogit-查看最终部署成果&#34;&gt;Nice! 现在访问 &lt;code&gt;http://yourname.github.io.git/&lt;/code&gt; 查看最终部署成果&lt;/h3&gt;
+</content>
+    </item>
+    
   </channel>
 </rss>

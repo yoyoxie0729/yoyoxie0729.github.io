@@ -6,11 +6,8 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="真正体会到了Excel的强大 查找类函数 实现功能：两张表利用关联字段，用B表字段填充补全A表
-VLOOKUP函数 =VLOOKUP(lookup_value, table_array, clo_index_num, [range_lookup]) INDEX函数配合MATCH函数 =INDEX(array, row_num, [column_num]) 实用类函数 实现功能：批量合并单元格
-遇到这样一个超级奇葩的需求，该怎么办
-第一步 例如列A为合并单元格目标列 在列A后添加一列列B B1中键入数字1，在A2键入以下函数 =IF(A2=A1,B1,B1&#43;1) 下拉填充至尾行实现按类编号 第二步 新建列C C1对B1取模运算 =MOD(B1,2) 下拉填充至尾行实现区分类别 第三步 新建列D 在D1键入 =IF(C1=1,&amp;#34;text&amp;#34;,0) 下拉填充至尾行实现按单元格类型分类 第四步 选中列D Ctrl &#43; G打开定位 进入定位条件，选中公式类型中的数字类型，确定 合并单元格 再次Ctrl &#43; G打开定位 进入定位条件，选中公式类型中的文字类型，确定 合并单元格 第五步 选中列D 格式刷复制格式 到列A应用至尾行 第六步 删除列B,列C,列D 批量合并单元格完成 " />
-<meta name="keywords" content="" />
+<meta name="description" content="真正体会到了 Excel 的强大，简单记录 vlookup、index&#43;match 等函数的使用" />
+<meta name="keywords" content="excel" />
 
   <meta name="robots" content="noodp" />
 
@@ -46,22 +43,19 @@ VLOOKUP函数 =VLOOKUP(lookup_value, table_array, clo_index_num, [range_lookup])
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="好用的 Excel 函数">
-<meta property="og:description" content="真正体会到了Excel的强大 查找类函数 实现功能：两张表利用关联字段，用B表字段填充补全A表
-VLOOKUP函数 =VLOOKUP(lookup_value, table_array, clo_index_num, [range_lookup]) INDEX函数配合MATCH函数 =INDEX(array, row_num, [column_num]) 实用类函数 实现功能：批量合并单元格
-遇到这样一个超级奇葩的需求，该怎么办
-第一步 例如列A为合并单元格目标列 在列A后添加一列列B B1中键入数字1，在A2键入以下函数 =IF(A2=A1,B1,B1&#43;1) 下拉填充至尾行实现按类编号 第二步 新建列C C1对B1取模运算 =MOD(B1,2) 下拉填充至尾行实现区分类别 第三步 新建列D 在D1键入 =IF(C1=1,&amp;#34;text&amp;#34;,0) 下拉填充至尾行实现按单元格类型分类 第四步 选中列D Ctrl &#43; G打开定位 进入定位条件，选中公式类型中的数字类型，确定 合并单元格 再次Ctrl &#43; G打开定位 进入定位条件，选中公式类型中的文字类型，确定 合并单元格 第五步 选中列D 格式刷复制格式 到列A应用至尾行 第六步 删除列B,列C,列D 批量合并单元格完成 " />
+<meta property="og:description" content="真正体会到了 Excel 的强大，简单记录 vlookup、index&#43;match 等函数的使用" />
 <meta property="og:url" content="https://yoyoxie0729.github.io/posts/48%E5%A5%BD%E7%94%A8%E7%9A%84excel%E5%87%BD%E6%95%B0/" />
 <meta property="og:site_name" content="YHDEV&#39;s Cave" />
 
   
-    <meta property="og:image" content="https://yoyoxie0729.github.io/img/favicon/green.png">
   
+  <meta property="og:image" content="https://yoyoxie0729.github.io/img/Excel-Banner-1-1100x619.png">
 
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
 
 
-  <meta property="article:published_time" content="2018-03-29 09:12:37 &#43;0000 UTC" />
+  <meta property="article:published_time" content="2018-03-29 09:12:37 &#43;0800 CST" />
 
 
 
@@ -140,10 +134,22 @@ VLOOKUP函数 =VLOOKUP(lookup_value, table_array, clo_index_num, [range_lookup])
   <h1 class="post-title">
     <a href="https://yoyoxie0729.github.io/posts/48%E5%A5%BD%E7%94%A8%E7%9A%84excel%E5%87%BD%E6%95%B0/">好用的 Excel 函数</a>
   </h1>
-  <div class="post-meta"><time class="post-date">2018-03-29</time></div>
+  <div class="post-meta"><time class="post-date">2018-03-29</time><span class="post-author">YHDEV</span><span class="post-reading-time">1 min read (50 words)</span></div>
 
   
+    <span class="post-tags">
+      
+      #<a href="https://yoyoxie0729.github.io/tags/excel/">Excel</a>&nbsp;
+      
+      #<a href="https://yoyoxie0729.github.io/tags/datadev/">DataDev</a>&nbsp;
+      
+    </span>
   
+  
+  <img src="https://yoyoxie0729.github.io/img/Excel-Banner-1-1100x619.png"
+    class="post-cover"
+    alt="好用的 Excel 函数"
+    title="Cover Image" />
 
 
   

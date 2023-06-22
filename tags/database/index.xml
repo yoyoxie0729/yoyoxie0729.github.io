@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Database on YHDEV&#39;s Cave</title>
+    <link>https://yoyoxie0729.github.io/tags/database/</link>
+    <description>Recent content in Database on YHDEV&#39;s Cave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 15 Mar 2019 17:12:02 +0800</lastBuildDate><atom:link href="https://yoyoxie0729.github.io/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>服务器内存降配后 Oracle 11g 无法启动问题的解决方案</title>
+      <link>https://yoyoxie0729.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AD%98%E9%99%8D%E9%85%8D%E5%90%8E-oracle-11g-%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Fri, 15 Mar 2019 17:12:02 +0800</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AD%98%E9%99%8D%E9%85%8D%E5%90%8E-oracle-11g-%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <description>背景 客户现场某台服务器利用率不达标，被服务商告知需要降低内存配置，降配后数据库无法正常启动
+排查步骤 检查Oracle数据库启动状态时发现无进程 sqlplus / as sysdba登陆后，运行startup命令报错MEMORY_TARGET not supported on this system 解决问题 通过搜索引擎定位到问题可能出现在pfile或spfile 通过spfile创建pfile，create pfile=&#39;path/to/pfile&#39; from spfile 修改pfile的MEMORY_TARGET的值到合适大小 用pfile启动数据库，成功 通过pfile创建spfile create spfile=&amp;#39;path/to/spfile&amp;#39; from pfile=&amp;#39;path/to/pfile&amp;#39; 重启数据库 问题得到解决👌🏻 </description>
+      <content>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+&lt;p&gt;客户现场某台服务器利用率不达标，被服务商告知需要降低内存配置，降配后数据库无法正常启动&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;排查步骤&#34;&gt;排查步骤&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;检查&lt;code&gt;Oracle&lt;/code&gt;数据库启动状态时发现无进程&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sqlplus / as sysdba&lt;/code&gt;登陆后，运行&lt;code&gt;startup&lt;/code&gt;命令报错&lt;code&gt;MEMORY_TARGET not supported on this system&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;解决问题&#34;&gt;解决问题&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;通过搜索引擎定位到问题可能出现在&lt;code&gt;pfile&lt;/code&gt;或&lt;code&gt;spfile&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;通过&lt;code&gt;spfile&lt;/code&gt;创建&lt;code&gt;pfile&lt;/code&gt;，&lt;code&gt;create pfile=&#39;path/to/pfile&#39; from spfile&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;修改&lt;code&gt;pfile&lt;/code&gt;的&lt;code&gt;MEMORY_TARGET&lt;/code&gt;的值到合适大小&lt;/li&gt;
+&lt;li&gt;用&lt;code&gt;pfile&lt;/code&gt;启动数据库，成功&lt;/li&gt;
+&lt;li&gt;通过&lt;code&gt;pfile&lt;/code&gt;创建&lt;code&gt;spfile&lt;/code&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;create spfile=&amp;#39;path/to/spfile&amp;#39; from pfile=&amp;#39;path/to/pfile&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;重启数据库&lt;/li&gt;
+&lt;li&gt;问题得到解决👌🏻&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>这些 SQL 函数原来 48 好用（未完）</title>
+      <link>https://yoyoxie0729.github.io/posts/%E8%BF%99%E4%BA%9Bsql%E5%87%BD%E6%95%B048%E5%A5%BD%E7%94%A8%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/</link>
+      <pubDate>Tue, 27 Mar 2018 14:34:41 +0800</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/posts/%E8%BF%99%E4%BA%9Bsql%E5%87%BD%E6%95%B048%E5%A5%BD%E7%94%A8%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/</guid>
+      <description> title: date: 函数部分 Oracle 11g版本WMSYS.WM_CONCAT()函数 -- 合并记录，逗号隔开 SELECT &amp;#39;字段1&amp;#39;,&amp;#39;字段2&amp;#39;,WMSYS.WM_CONCAT(&amp;#39;字段3&amp;#39;) FROM &amp;#39;表1&amp;#39; GROUP BY &amp;#39;字段1&amp;#39;,&amp;#39;字段2&amp;#39; ORDER BY &amp;#39;字段1&amp;#39;; 效果如下 原表 字段1 字段2 字段3 A A1 AA2 A A1 AA3 B B1 BB1 B B1 BB2 结果表 字段1 字段2 WMSYS.WM_CONCAT(字段3) A A1 AA2,AA3 B B1 BB1,BB2 </description>
+      <content>&lt;hr&gt;
+&lt;h2 id=&#34;date&#34;&gt;title:
+date:&lt;/h2&gt;
+&lt;h2 id=&#34;函数部分&#34;&gt;函数部分&lt;/h2&gt;
+&lt;h3 id=&#34;oracle-11g版本wmsyswm_concat函数&#34;&gt;Oracle 11g版本&lt;code&gt;WMSYS.WM_CONCAT()&lt;/code&gt;函数&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;-- 合并记录，逗号隔开
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;字段1&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;字段2&amp;#39;&lt;/span&gt;,WMSYS.WM_CONCAT(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;字段3&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;表1&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;GROUP&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;字段1&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;字段2&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ORDER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;字段1&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;效果如下&#34;&gt;效果如下&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;原表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;字段1&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;字段2&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;字段3&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;AA2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;AA3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;B&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;B1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BB1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;B&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;B1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BB2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;结果表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;字段1&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;字段2&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;code&gt;WMSYS.WM_CONCAT(字段3)&lt;/code&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;AA2,AA3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;B&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;B1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BB1,BB2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

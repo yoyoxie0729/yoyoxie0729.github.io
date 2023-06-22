@@ -158,7 +158,7 @@
 
         <div class="post-content">
           
-            基础环境 Git Homebrew 一、用 Homebrew 安装 hugo $ brew install hugo # 测试 $ hugo version hugo v0.114.0+extended darwin/arm64 BuildDate=unknown 二、hugo 博客生成 新建 Git 工程并初始化 $ git clone https://github.com/$USERNAME/blog_hugo.git $ hugo new site blog_hugo/ --force $ cd blog_hugo/ $ gaa; gcam &#34;some msg&#34;; gp 新建 hugo 站点、第一篇文章 $ hugo new site $NAME_OF_SITE $ cd $NAME_OF_SITE $ hugo new posts/my-first-post.md $ hugo server -D 三、安装主题 $ git clone https://github.com/panr/hugo-theme-terminal.git themes/terminal 四、配置主题 编辑hugo.
+            搭建 hugo 博客并发布至 github pages 的流水账
           
         </div>
 
@@ -173,17 +173,28 @@
         <h1 class="post-title">
           <a href="https://yoyoxie0729.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AD%98%E9%99%8D%E9%85%8D%E5%90%8E-oracle-11g-%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">服务器内存降配后 Oracle 11g 无法启动问题的解决方案</a>
         </h1>
-        <div class="post-meta"><time class="post-date">2019-03-15</time></div>
+        <div class="post-meta"><time class="post-date">2019-03-15</time><span class="post-author">YHDEV</span></div>
 
+        
+          <span class="post-tags">
+            
+            #<a href="https://yoyoxie0729.github.io/tags/devops/">DevOps</a>&nbsp;
+            
+            #<a href="https://yoyoxie0729.github.io/tags/database/">Database</a>&nbsp;
+            
+          </span>
         
 
         
+  <img src="https://yoyoxie0729.github.io/img/oracle.jpg"
+    class="post-cover"
+    alt="服务器内存降配后 Oracle 11g 无法启动问题的解决方案"
+    title="Cover Image" />
 
 
         <div class="post-content">
           
-            背景 客户现场某台服务器利用率不达标，被服务商告知需要降低内存配置，降配后数据库无法正常启动
-排查步骤 检查Oracle数据库启动状态时发现无进程 sqlplus / as sysdba登陆后，运行startup命令报错MEMORY_TARGET not supported on this system 解决问题 通过搜索引擎定位到问题可能出现在pfile或spfile 通过spfile创建pfile，create pfile='path/to/pfile' from spfile 修改pfile的MEMORY_TARGET的值到合适大小 用pfile启动数据库，成功 通过pfile创建spfile create spfile=&#39;path/to/spfile&#39; from pfile=&#39;path/to/pfile&#39; 重启数据库 问题得到解决👌🏻 
+            客户现场某台服务器降配后数据库无法正常启动，问题排查及解决的记录
           
         </div>
 
@@ -198,8 +209,16 @@
         <h1 class="post-title">
           <a href="https://yoyoxie0729.github.io/posts/%E5%9F%BA%E4%BA%8E%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%E7%9A%84wordpress%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/">基于容器的 WordPress 搭建过程</a>
         </h1>
-        <div class="post-meta"><time class="post-date">2018-04-02</time></div>
+        <div class="post-meta"><time class="post-date">2018-04-02</time><span class="post-author">YHDEV</span></div>
 
+        
+          <span class="post-tags">
+            
+            #<a href="https://yoyoxie0729.github.io/tags/blog/">Blog</a>&nbsp;
+            
+            #<a href="https://yoyoxie0729.github.io/tags/wordpress/">WordPress</a>&nbsp;
+            
+          </span>
         
 
         
@@ -207,9 +226,7 @@
 
         <div class="post-content">
           
-            安装Docker 启动名为wordpressdb的MySQL容器
-$ docker run --name wordpressdb -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7 构建镜像后，用镜像启动一个名为phpwithmysql的容器
-$ docker run --name wordpress -v &#34;$PWD/&#34;:/var/www/html -p 8888:80 -d phpwithmysql 
+            Docker WordPress 搭建过程
           
         </div>
 
@@ -222,10 +239,18 @@ $ docker run --name wordpress -v &#34;$PWD/&#34;:/var/www/html -p 8888:80 -d php
     
       <article class="post on-list">
         <h1 class="post-title">
-          <a href="https://yoyoxie0729.github.io/posts/etl%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">ETL 数据抽取过程中遇到的问题以及解决方案</a>
+          <a href="https://yoyoxie0729.github.io/posts/etl%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">ETL 过程中遇到的问题以及解决方案</a>
         </h1>
-        <div class="post-meta"><time class="post-date">2018-03-31</time></div>
+        <div class="post-meta"><time class="post-date">2018-03-31</time><span class="post-author">YHDEV</span></div>
 
+        
+          <span class="post-tags">
+            
+            #<a href="https://yoyoxie0729.github.io/tags/etl/">ETL</a>&nbsp;
+            
+            #<a href="https://yoyoxie0729.github.io/tags/datadev/">DataDev</a>&nbsp;
+            
+          </span>
         
 
         
@@ -233,12 +258,7 @@ $ docker run --name wordpress -v &#34;$PWD/&#34;:/var/www/html -p 8888:80 -d php
 
         <div class="post-content">
           
-            今天遇到的问题 SQL语句在客户端做查询时，结果集能够正常返回，但到Kettle中始终报错，返回Timestamp : Unable to get timestamp from resultset等错误信息并包含中文乱码。
-发现问题 在看到timestamp之后我瞬间反应过来，可能是使用的str_to_date()函数出现了问题，当源字段为非正常日期格式或者为0或null值时，str_to_date()容易报错。
-解决方案 在Kettle的数据库连接配置中加入如下键值对，将非正常值转化为null值：
-zeroDateTimeBehavior:convertToNull 成果 成功查询出结果！
-心得 SQL客户端固然方便，但也正因为加入了太多自动化的功能、配置，容易让基础不扎实的用户在其他不同的环境下屡屡出错，碰壁。（就像我一样）
-基础知识的掌握程度决定了解决问题的速度 &ndash; 我瞎编的
+            zeroDateTimeBehavior:convertToNull
           
         </div>
 
@@ -253,18 +273,28 @@ zeroDateTimeBehavior:convertToNull 成果 成功查询出结果！
         <h1 class="post-title">
           <a href="https://yoyoxie0729.github.io/posts/%E5%88%A9%E7%94%A8ffmpeg%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91%E7%BC%A9%E5%87%8F%E5%A4%A7%E5%B0%8F/">利用 ffmpeg 提取音频缩减大小</a>
         </h1>
-        <div class="post-meta"><time class="post-date">2018-03-30</time></div>
+        <div class="post-meta"><time class="post-date">2018-03-30</time><span class="post-author">YHDEV</span></div>
 
+        
+          <span class="post-tags">
+            
+            #<a href="https://yoyoxie0729.github.io/tags/media/">Media</a>&nbsp;
+            
+            #<a href="https://yoyoxie0729.github.io/tags/devops/">DevOps</a>&nbsp;
+            
+          </span>
         
 
         
+  <img src="https://yoyoxie0729.github.io/img/FFmpeg_Logo_new.svg.png"
+    class="post-cover"
+    alt="利用 ffmpeg 提取音频缩减大小"
+    title="Cover Image" />
 
 
         <div class="post-content">
           
-            记笔记 今天拿到一个音频文件，文件大小超出某平台上传限制，便着手在不改变音频长度的前提下缩减音频大小。
-首先想到的是Adobe家大名鼎鼎的Media Encoder CC，却不曾想已过期许久。 接着想到用Fianl Cut Pro X导出音频，尝试了调整码率，但输出文件并不能达到需求的文件大小。 一番Google之后，决定用ffmpeg尝试压缩 安装编译完成后，打开终端键入
-$ ffmpeg -i input.mp3 -vn -ab 128k output.mp3 Done！成功输出指定码率的音频文件，文件大小符合要求 结论：一名合格的程序员50%的工作时间要花在用Google去填坑
+            ffmpeg不改变音频长度的前提下缩减音频大小
           
         </div>
 

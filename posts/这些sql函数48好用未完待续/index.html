@@ -6,8 +6,8 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="函数部分 Oracle 11g版本WMSYS.WM_CONCAT()函数 -- 合并记录，逗号隔开 SELECT &amp;#39;字段1&amp;#39;,&amp;#39;字段2&amp;#39;,WMSYS.WM_CONCAT(&amp;#39;字段3&amp;#39;) FROM &amp;#39;表1&amp;#39; GROUP BY &amp;#39;字段1&amp;#39;,&amp;#39;字段2&amp;#39; ORDER BY &amp;#39;字段1&amp;#39;; 效果如下 原表 字段1 字段2 字段3 A A1 AA2 A A1 AA3 B B1 BB1 B B1 BB2 结果表 字段1 字段2 WMSYS.WM_CONCAT(字段3) A A1 AA2,AA3 B B1 BB1,BB2 " />
-<meta name="keywords" content="" />
+<meta name="description" content="记录实用的 SQL 函数" />
+<meta name="keywords" content="sql, oracle" />
 
   <meta name="robots" content="noodp" />
 
@@ -43,19 +43,19 @@
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="这些 SQL 函数原来 48 好用（未完）">
-<meta property="og:description" content="函数部分 Oracle 11g版本WMSYS.WM_CONCAT()函数 -- 合并记录，逗号隔开 SELECT &amp;#39;字段1&amp;#39;,&amp;#39;字段2&amp;#39;,WMSYS.WM_CONCAT(&amp;#39;字段3&amp;#39;) FROM &amp;#39;表1&amp;#39; GROUP BY &amp;#39;字段1&amp;#39;,&amp;#39;字段2&amp;#39; ORDER BY &amp;#39;字段1&amp;#39;; 效果如下 原表 字段1 字段2 字段3 A A1 AA2 A A1 AA3 B B1 BB1 B B1 BB2 结果表 字段1 字段2 WMSYS.WM_CONCAT(字段3) A A1 AA2,AA3 B B1 BB1,BB2 " />
+<meta property="og:description" content="记录实用的 SQL 函数" />
 <meta property="og:url" content="https://yoyoxie0729.github.io/posts/%E8%BF%99%E4%BA%9Bsql%E5%87%BD%E6%95%B048%E5%A5%BD%E7%94%A8%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/" />
 <meta property="og:site_name" content="YHDEV&#39;s Cave" />
 
   
-    <meta property="og:image" content="https://yoyoxie0729.github.io/img/favicon/green.png">
   
+  <meta property="og:image" content="https://yoyoxie0729.github.io">
 
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
 
 
-  <meta property="article:published_time" content="2018-03-27 14:34:41 &#43;0000 UTC" />
+  <meta property="article:published_time" content="2018-03-27 14:34:41 &#43;0800 CST" />
 
 
 
@@ -134,8 +134,16 @@
   <h1 class="post-title">
     <a href="https://yoyoxie0729.github.io/posts/%E8%BF%99%E4%BA%9Bsql%E5%87%BD%E6%95%B048%E5%A5%BD%E7%94%A8%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">这些 SQL 函数原来 48 好用（未完）</a>
   </h1>
-  <div class="post-meta"><time class="post-date">2018-03-27</time></div>
+  <div class="post-meta"><time class="post-date">2018-03-27</time><span class="post-author">YHDEV</span><span class="post-reading-time">1 min read (44 words)</span></div>
 
+  
+    <span class="post-tags">
+      
+      #<a href="https://yoyoxie0729.github.io/tags/sql/">SQL</a>&nbsp;
+      
+      #<a href="https://yoyoxie0729.github.io/tags/database/">Database</a>&nbsp;
+      
+    </span>
   
   
 
@@ -143,7 +151,10 @@
   
 
   <div class="post-content"><div>
-        <h2 id="函数部分">函数部分<a href="#函数部分" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+        <hr>
+<h2 id="date">title:
+date:</h2>
+<h2 id="函数部分">函数部分<a href="#函数部分" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <h3 id="oracle-11g版本wmsyswm_concat函数">Oracle 11g版本<code>WMSYS.WM_CONCAT()</code>函数<a href="#oracle-11g版本wmsyswm_concat函数" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- 合并记录，逗号隔开
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#e6db74">&#39;字段1&#39;</span>,<span style="color:#e6db74">&#39;字段2&#39;</span>,WMSYS.WM_CONCAT(<span style="color:#e6db74">&#39;字段3&#39;</span>)

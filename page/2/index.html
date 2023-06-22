@@ -148,19 +148,28 @@
           <a href="https://yoyoxie0729.github.io/posts/48%E5%A5%BD%E7%94%A8%E7%9A%84excel%E5%87%BD%E6%95%B0/">好用的 Excel 函数</a>
         </h1>
 
-        <div class="post-meta"><time class="post-date">2018-03-29</time></div>
+        <div class="post-meta"><time class="post-date">2018-03-29</time><span class="post-author">YHDEV</span></div>
 
+        
+          <span class="post-tags">
+            
+            #<a href="https://yoyoxie0729.github.io/tags/excel/">Excel</a>&nbsp;
+            
+            #<a href="https://yoyoxie0729.github.io/tags/datadev/">DataDev</a>&nbsp;
+            
+          </span>
         
 
         
+  <img src="https://yoyoxie0729.github.io/img/Excel-Banner-1-1100x619.png"
+    class="post-cover"
+    alt="好用的 Excel 函数"
+    title="Cover Image" />
 
 
         <div class="post-content">
           
-            真正体会到了Excel的强大 查找类函数 实现功能：两张表利用关联字段，用B表字段填充补全A表
-VLOOKUP函数 =VLOOKUP(lookup_value, table_array, clo_index_num, [range_lookup]) INDEX函数配合MATCH函数 =INDEX(array, row_num, [column_num]) 实用类函数 实现功能：批量合并单元格
-遇到这样一个超级奇葩的需求，该怎么办
-第一步 例如列A为合并单元格目标列 在列A后添加一列列B B1中键入数字1，在A2键入以下函数 =IF(A2=A1,B1,B1+1) 下拉填充至尾行实现按类编号 第二步 新建列C C1对B1取模运算 =MOD(B1,2) 下拉填充至尾行实现区分类别 第三步 新建列D 在D1键入 =IF(C1=1,&#34;text&#34;,0) 下拉填充至尾行实现按单元格类型分类 第四步 选中列D Ctrl + G打开定位 进入定位条件，选中公式类型中的数字类型，确定 合并单元格 再次Ctrl + G打开定位 进入定位条件，选中公式类型中的文字类型，确定 合并单元格 第五步 选中列D 格式刷复制格式 到列A应用至尾行 第六步 删除列B,列C,列D 批量合并单元格完成 
+            真正体会到了 Excel 的强大，简单记录 vlookup、index+match 等函数的使用
           
         </div>
 
@@ -176,8 +185,16 @@ VLOOKUP函数 =VLOOKUP(lookup_value, table_array, clo_index_num, [range_lookup])
           <a href="https://yoyoxie0729.github.io/posts/%E8%BF%99%E4%BA%9Bsql%E5%87%BD%E6%95%B048%E5%A5%BD%E7%94%A8%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">这些 SQL 函数原来 48 好用（未完）</a>
         </h1>
 
-        <div class="post-meta"><time class="post-date">2018-03-27</time></div>
+        <div class="post-meta"><time class="post-date">2018-03-27</time><span class="post-author">YHDEV</span></div>
 
+        
+          <span class="post-tags">
+            
+            #<a href="https://yoyoxie0729.github.io/tags/sql/">SQL</a>&nbsp;
+            
+            #<a href="https://yoyoxie0729.github.io/tags/database/">Database</a>&nbsp;
+            
+          </span>
         
 
         
@@ -185,7 +202,7 @@ VLOOKUP函数 =VLOOKUP(lookup_value, table_array, clo_index_num, [range_lookup])
 
         <div class="post-content">
           
-            函数部分 Oracle 11g版本WMSYS.WM_CONCAT()函数 -- 合并记录，逗号隔开 SELECT &#39;字段1&#39;,&#39;字段2&#39;,WMSYS.WM_CONCAT(&#39;字段3&#39;) FROM &#39;表1&#39; GROUP BY &#39;字段1&#39;,&#39;字段2&#39; ORDER BY &#39;字段1&#39;; 效果如下 原表 字段1 字段2 字段3 A A1 AA2 A A1 AA3 B B1 BB1 B B1 BB2 结果表 字段1 字段2 WMSYS.WM_CONCAT(字段3) A A1 AA2,AA3 B B1 BB1,BB2 
+            记录实用的 SQL 函数
           
         </div>
 
@@ -201,8 +218,18 @@ VLOOKUP函数 =VLOOKUP(lookup_value, table_array, clo_index_num, [range_lookup])
           <a href="https://yoyoxie0729.github.io/posts/hexo%E5%BB%BA%E7%AB%99%E8%AE%B0%E5%BD%95/">开源博客 Hexo 部署过程全记录</a>
         </h1>
 
-        <div class="post-meta"><time class="post-date">2018-03-27</time></div>
+        <div class="post-meta"><time class="post-date">2018-03-27</time><span class="post-author">YHDEV</span></div>
 
+        
+          <span class="post-tags">
+            
+            #<a href="https://yoyoxie0729.github.io/tags/blog/">Blog</a>&nbsp;
+            
+            #<a href="https://yoyoxie0729.github.io/tags/devops/">DevOps</a>&nbsp;
+            
+            #<a href="https://yoyoxie0729.github.io/tags/hexo/">Hexo</a>&nbsp;
+            
+          </span>
         
 
         
@@ -210,8 +237,7 @@ VLOOKUP函数 =VLOOKUP(lookup_value, table_array, clo_index_num, [range_lookup])
 
         <div class="post-content">
           
-            基于 Node.js 的开源博客软件 Hexo 部署流程 安装 HomeBrew $ /usr/bin/ruby -e &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&#34; 安装 npm $ brew intall npm 安装 hexo-cli $ npm install -g hexo-cli 初始化 Hexo $ hexo init blog 生成第一篇博客 $ hexo n &#34;Hello,Hexo!&#34; 用 Markdown 语法编写博客 $ vim Hellp,Hexo!.md 生成静态资源并本地发布测试 $ hexo g $ hexo s 或
-$ hexo s -g 访问 http://localhost:4000/ 查看部署成果 修改站点配置文件 _config.yml # Deployment ## Docs: https://hexo.io/docs/deployment.html deploy: type: git repo: https://github.com/yourname/yourname.github.io.git branch: master 发布博客 $ hexo clean $ hexo g $ hexo d Nice!
+            基于 <code>Node.js</code> 的开源博客软件 <code>Hexo</code> 部署流程
           
         </div>
 

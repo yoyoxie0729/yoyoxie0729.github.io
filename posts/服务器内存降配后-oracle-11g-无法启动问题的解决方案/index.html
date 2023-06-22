@@ -6,9 +6,8 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="背景 客户现场某台服务器利用率不达标，被服务商告知需要降低内存配置，降配后数据库无法正常启动
-排查步骤 检查Oracle数据库启动状态时发现无进程 sqlplus / as sysdba登陆后，运行startup命令报错MEMORY_TARGET not supported on this system 解决问题 通过搜索引擎定位到问题可能出现在pfile或spfile 通过spfile创建pfile，create pfile=&#39;path/to/pfile&#39; from spfile 修改pfile的MEMORY_TARGET的值到合适大小 用pfile启动数据库，成功 通过pfile创建spfile create spfile=&amp;#39;path/to/spfile&amp;#39; from pfile=&amp;#39;path/to/pfile&amp;#39; 重启数据库 问题得到解决👌🏻 " />
-<meta name="keywords" content="" />
+<meta name="description" content="客户现场某台服务器降配后数据库无法正常启动，问题排查及解决的记录" />
+<meta name="keywords" content="oracle" />
 
   <meta name="robots" content="noodp" />
 
@@ -44,20 +43,19 @@
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="服务器内存降配后 Oracle 11g 无法启动问题的解决方案">
-<meta property="og:description" content="背景 客户现场某台服务器利用率不达标，被服务商告知需要降低内存配置，降配后数据库无法正常启动
-排查步骤 检查Oracle数据库启动状态时发现无进程 sqlplus / as sysdba登陆后，运行startup命令报错MEMORY_TARGET not supported on this system 解决问题 通过搜索引擎定位到问题可能出现在pfile或spfile 通过spfile创建pfile，create pfile=&#39;path/to/pfile&#39; from spfile 修改pfile的MEMORY_TARGET的值到合适大小 用pfile启动数据库，成功 通过pfile创建spfile create spfile=&amp;#39;path/to/spfile&amp;#39; from pfile=&amp;#39;path/to/pfile&amp;#39; 重启数据库 问题得到解决👌🏻 " />
+<meta property="og:description" content="客户现场某台服务器降配后数据库无法正常启动，问题排查及解决的记录" />
 <meta property="og:url" content="https://yoyoxie0729.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AD%98%E9%99%8D%E9%85%8D%E5%90%8E-oracle-11g-%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" />
 <meta property="og:site_name" content="YHDEV&#39;s Cave" />
 
   
-    <meta property="og:image" content="https://yoyoxie0729.github.io/img/favicon/green.png">
   
+  <meta property="og:image" content="https://yoyoxie0729.github.io/img/oracle.jpg">
 
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
 
 
-  <meta property="article:published_time" content="2019-03-15 17:12:02 &#43;0000 UTC" />
+  <meta property="article:published_time" content="2019-03-15 17:12:02 &#43;0800 CST" />
 
 
 
@@ -136,10 +134,22 @@
   <h1 class="post-title">
     <a href="https://yoyoxie0729.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AD%98%E9%99%8D%E9%85%8D%E5%90%8E-oracle-11g-%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">服务器内存降配后 Oracle 11g 无法启动问题的解决方案</a>
   </h1>
-  <div class="post-meta"><time class="post-date">2019-03-15</time></div>
+  <div class="post-meta"><time class="post-date">2019-03-15</time><span class="post-author">YHDEV</span><span class="post-reading-time">1 min read (28 words)</span></div>
 
   
+    <span class="post-tags">
+      
+      #<a href="https://yoyoxie0729.github.io/tags/devops/">DevOps</a>&nbsp;
+      
+      #<a href="https://yoyoxie0729.github.io/tags/database/">Database</a>&nbsp;
+      
+    </span>
   
+  
+  <img src="https://yoyoxie0729.github.io/img/oracle.jpg"
+    class="post-cover"
+    alt="服务器内存降配后 Oracle 11g 无法启动问题的解决方案"
+    title="Cover Image" />
 
 
   

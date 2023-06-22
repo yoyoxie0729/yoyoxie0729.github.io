@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Excel on YHDEV&#39;s Cave</title>
+    <link>https://yoyoxie0729.github.io/tags/excel/</link>
+    <description>Recent content in Excel on YHDEV&#39;s Cave</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Mar 2018 09:12:37 +0800</lastBuildDate><atom:link href="https://yoyoxie0729.github.io/tags/excel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>好用的 Excel 函数</title>
+      <link>https://yoyoxie0729.github.io/posts/48%E5%A5%BD%E7%94%A8%E7%9A%84excel%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Thu, 29 Mar 2018 09:12:37 +0800</pubDate>
+      
+      <guid>https://yoyoxie0729.github.io/posts/48%E5%A5%BD%E7%94%A8%E7%9A%84excel%E5%87%BD%E6%95%B0/</guid>
+      <description>真正体会到了Excel的强大 查找类函数 实现功能：两张表利用关联字段，用B表字段填充补全A表
+VLOOKUP函数 =VLOOKUP(lookup_value, table_array, clo_index_num, [range_lookup]) INDEX函数配合MATCH函数 =INDEX(array, row_num, [column_num]) 实用类函数 实现功能：批量合并单元格
+遇到这样一个超级奇葩的需求，该怎么办
+第一步 例如列A为合并单元格目标列 在列A后添加一列列B B1中键入数字1，在A2键入以下函数 =IF(A2=A1,B1,B1+1) 下拉填充至尾行实现按类编号 第二步 新建列C C1对B1取模运算 =MOD(B1,2) 下拉填充至尾行实现区分类别 第三步 新建列D 在D1键入 =IF(C1=1,&amp;#34;text&amp;#34;,0) 下拉填充至尾行实现按单元格类型分类 第四步 选中列D Ctrl + G打开定位 进入定位条件，选中公式类型中的数字类型，确定 合并单元格 再次Ctrl + G打开定位 进入定位条件，选中公式类型中的文字类型，确定 合并单元格 第五步 选中列D 格式刷复制格式 到列A应用至尾行 第六步 删除列B,列C,列D 批量合并单元格完成 </description>
+      <content>&lt;h2 id=&#34;真正体会到了excel的强大&#34;&gt;真正体会到了Excel的强大&lt;/h2&gt;
+&lt;h3 id=&#34;查找类函数&#34;&gt;查找类函数&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;实现功能：两张表利用关联字段，用B表字段填充补全A表&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;VLOOKUP&lt;/code&gt;函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-excel&#34; data-lang=&#34;excel&#34;&gt;=VLOOKUP(lookup_value, table_array, clo_index_num, [range_lookup])
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;INDEX&lt;/code&gt;函数配合&lt;code&gt;MATCH&lt;/code&gt;函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-excel&#34; data-lang=&#34;excel&#34;&gt;=INDEX(array, row_num, [column_num])
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;实用类函数&#34;&gt;实用类函数&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;实现功能：批量合并单元格&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;遇到这样一个超级奇葩的需求，该怎么办&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;第一步
+&lt;ul&gt;
+&lt;li&gt;例如&lt;code&gt;列A&lt;/code&gt;为合并单元格目标列&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;列A&lt;/code&gt;后添加一列&lt;code&gt;列B&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;B1&lt;/code&gt;中键入数字&lt;code&gt;1&lt;/code&gt;，在&lt;code&gt;A2&lt;/code&gt;键入以下函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-excel&#34; data-lang=&#34;excel&#34;&gt;=IF(A2=A1,B1,B1+1)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;下拉填充至尾行实现按类编号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第二步
+&lt;ul&gt;
+&lt;li&gt;新建&lt;code&gt;列C&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C1&lt;/code&gt;对&lt;code&gt;B1&lt;/code&gt;取模运算&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-excel&#34; data-lang=&#34;excel&#34;&gt;=MOD(B1,2)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;下拉填充至尾行实现区分类别&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第三步
+&lt;ul&gt;
+&lt;li&gt;新建&lt;code&gt;列D&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;D1&lt;/code&gt;键入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-excel&#34; data-lang=&#34;excel&#34;&gt;=IF(C1=1,&amp;#34;text&amp;#34;,0)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;下拉填充至尾行实现按单元格类型分类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第四步
+&lt;ul&gt;
+&lt;li&gt;选中&lt;code&gt;列D&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Ctrl + G&lt;/code&gt;打开定位&lt;/li&gt;
+&lt;li&gt;进入定位条件，选中公式类型中的数字类型，&lt;code&gt;确定&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;合并单元格&lt;/li&gt;
+&lt;li&gt;再次&lt;code&gt;Ctrl + G&lt;/code&gt;打开定位&lt;/li&gt;
+&lt;li&gt;进入定位条件，选中公式类型中的文字类型，&lt;code&gt;确定&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;合并单元格&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第五步
+&lt;ul&gt;
+&lt;li&gt;选中&lt;code&gt;列D&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;格式刷复制格式&lt;/li&gt;
+&lt;li&gt;到&lt;code&gt;列A&lt;/code&gt;应用至尾行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第六步
+&lt;ul&gt;
+&lt;li&gt;删除&lt;code&gt;列B&lt;/code&gt;,&lt;code&gt;列C&lt;/code&gt;,&lt;code&gt;列D&lt;/code&gt;
+&lt;strong&gt;批量合并单元格完成&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
