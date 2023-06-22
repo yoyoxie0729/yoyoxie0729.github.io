@@ -8,6 +8,7 @@ paginate = 5
 contentTypeName = "posts"
 themeColor = "green"
 showMenuItems = 2
+showLanguageSelector = true
 fullWidthTheme = false
 centerTheme = true
 
