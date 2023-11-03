@@ -97,6 +97,3 @@ $ hugo
  $ gaa; gcam "some msg"; gp
  ```
  - 访问[个人主页](https://yoyoxie0729.github.io/)查看效果
-
-
-
