@@ -97,3 +97,5 @@ $ hugo
  $ gaa; gcam "some msg"; gp
  ```
  - 访问[个人主页](https://yoyoxie0729.github.io/)查看效果
+
+![Alt text](/img/JPEG%E5%9B%BE%E5%83%8F-47FA-A038-09-0.jpeg)
