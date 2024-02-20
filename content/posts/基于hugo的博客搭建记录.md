@@ -93,7 +93,7 @@ $ hugo
 ### 将静态页面目录关联 Github Pages 仓库
  ```bash
  $ git submodule add -b main https://github.com/yoyoxie0729/yoyoxie0729.github.io.git public
- $ cd cd public/
+ $ cd public/
  $ gaa; gcam "some msg"; gp
  ```
  - 访问[个人主页](https://yoyoxie0729.github.io/)查看效果
