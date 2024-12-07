@@ -1,9 +1,8 @@
-baseURL = 'https://yoyoxie0729.github.io'
+baseURL = '/'
 languageCode = 'zh-cn'
 title = "YHDEV's Cave"
 theme = "terminal"
-paginate = 5
-
+pagination.pagerSize = 5
 [params]
 contentTypeName = "posts"
 themeColor = "green"
