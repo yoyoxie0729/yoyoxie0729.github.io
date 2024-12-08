@@ -2,7 +2,7 @@
 title = "服务器内存降配后 Oracle 11g 无法启动问题的解决方案"
 date = "2019-03-15T17:12:02+08:00"
 author = "YHDEV"
-cover = "img/oracle.jpg"
+# cover = "img/oracle.jpg"
 tags = ["DevOps", "Database"]
 keywords = ["oracle"]
 description = "客户现场某台服务器降配后数据库无法正常启动，问题排查及解决的记录"

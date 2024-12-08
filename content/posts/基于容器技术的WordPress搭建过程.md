@@ -2,7 +2,7 @@
 title = "基于容器的 WordPress 搭建过程"
 date = "2018-04-02T16:05:42+08:00"
 author = "YHDEV"
-cover = ""
+# cover = ""
 tags = ["Blog", "WordPress"]
 keywords = ["wordpress"]
 description = "Docker WordPress 搭建过程"

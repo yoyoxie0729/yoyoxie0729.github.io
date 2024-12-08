@@ -2,7 +2,7 @@
 title = "基于 hugo 的博客搭建记录"
 date = "2023-06-23T00:38:08+08:00"
 author = "YHDEV"
-cover = "img/Logo_of_Hugo_the_static_website_generator.svg"
+# cover = "img/Logo_of_Hugo_the_static_website_generator.svg"
 tags = ["Blog", "DevOps"]
 keywords = ["hugo", "ghpages"]
 description = "搭建 hugo 博客并发布至 github pages 的流水账"

@@ -2,7 +2,7 @@
 title = "开源博客 Hexo 部署过程全记录"
 date = "2018-03-27T00:00:15+08:00"
 author = "YHDEV"
-cover = ""
+# cover = ""
 tags = ["Blog", "DevOps", "Hexo"]
 keywords = ["hexo"]
 description = "基于 `Node.js` 的开源博客软件 `Hexo` 部署流程"

@@ -2,7 +2,7 @@
 title = "这些 SQL 函数原来 48 好用（未完）"
 date = "2018-03-27T14:34:41+08:00"
 author = "YHDEV"
-cover = ""
+# cover = ""
 tags = ["SQL", "Database"]
 keywords = ["sql","oracle"]
 description = "记录实用的 SQL 函数"

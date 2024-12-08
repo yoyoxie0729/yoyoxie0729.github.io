@@ -2,7 +2,7 @@
 title = "ETL 过程中遇到的问题以及解决方案"
 date = "2018-03-31T11:33:06+08:00"
 author = "YHDEV"
-cover = ""
+# cover = ""
 tags = ["ETL", "DataDev"]
 keywords = ["kettle"]
 description = "zeroDateTimeBehavior:convertToNull"

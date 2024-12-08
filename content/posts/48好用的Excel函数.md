@@ -2,7 +2,7 @@
 title = "好用的 Excel 函数"
 date = "2018-03-29T09:12:37+08:00"
 author = "YHDEV"
-cover = "img/Excel-Banner-1-1100x619.png"
+# cover = "img/Excel-Banner-1-1100x619.png"
 tags = ["Excel", "DataDev"]
 keywords = ["excel"]
 description = "真正体会到了 Excel 的强大，简单记录 vlookup、index+match 等函数的使用"

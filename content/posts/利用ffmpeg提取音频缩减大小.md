@@ -2,7 +2,7 @@
 title = "利用 ffmpeg 提取音频缩减大小"
 date = "2018-03-30T11:55:14+08:00"
 author = "YHDEV"
-cover = "img/FFmpeg_Logo_new.svg.png"
+# cover = "img/FFmpeg_Logo_new.svg.png"
 tags = ["Media", "DevOps"]
 keywords = ["ffmpeg"]
 description = "ffmpeg不改变音频长度的前提下缩减音频大小"
